@@ -3,4 +3,8 @@
 // for more, see: https://solito.dev/recipes/tree-shaking
 
 import React from 'react'
-export const NavigationProvider = ({ children }) => <>{children}</>
+export const NavigationProvider = ({
+  children,
+}: {
+  children: React.ReactElement
+}) => <>{children}</>

@@ -3,7 +3,12 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { HomeScreen } from '../../features/home/screen'
 import { UserDetailScreen } from '../../features/user/detail-screen'
 
-const Stack = createNativeStackNavigator()
+const Stack = createNativeStackNavigator<{
+  home: undefined
+  'user-detail': {
+    id: string
+  }
+}>()
 
 export function NativeNavigation() {
   return (

@@ -4,7 +4,7 @@ import React from 'react'
 import { Center, Heading, Button, Box, ChevronLeftIcon } from 'native-base'
 import { ColorModeSwitch } from '../../components'
 
-const { useParam } = createParam()
+const { useParam } = createParam<{ id: string }>()
 
 export function UserDetailScreen() {
   const [id] = useParam('id')
