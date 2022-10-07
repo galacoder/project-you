@@ -5,6 +5,7 @@ const withTM = require('next-transpile-modules')([
   'moti',
   'nativewind',
   'app',
+
 ])
 const withFonts = require('next-fonts')
 const withImages = require('next-images')

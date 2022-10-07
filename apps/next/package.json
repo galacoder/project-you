@@ -19,9 +19,9 @@
     "autoprefixer": "^10.4.7",
     "eslint-config-next": "12.2.5",
     "next-compose-plugins": "^2.2.1",
-    "next-transpile-modules": "^9.0.0",
-    "tailwindcss": "^3.0.24",
     "next-fonts": "^1.5.1",
-    "next-images": "^1.8.4"
+    "next-images": "^1.8.4",
+    "next-transpile-modules": "^9.0.0",
+    "tailwindcss": "^3.0.24"
   }
 }
