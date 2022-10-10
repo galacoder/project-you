@@ -6,8 +6,8 @@ const StyledTextInput = styled(NativeTextInput)
 
 export const TextInput = (props) => {
   return (
-    < View >
-      <StyledTextInput className="w-6 h-6" {...props} />
-    </View >
+    <View>
+      <StyledTextInput className="w-auto h-12" {...props} />
+    </View>
   )
 }
