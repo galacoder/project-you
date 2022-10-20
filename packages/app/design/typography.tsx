@@ -13,22 +13,27 @@ export const P = styled(NativeText, 'text-base text-black my-4')
 /**
  * Components can have defaultProps and styles
  */
-export const H1 = styled(NativeText, 'text-[34px] font-extrabold my-4')
+export const H1 = styled(NativeText, 'text-[34px] font-extrabold leading-10')
 H1.defaultProps = {
   accessibilityLevel: 1,
   accessibilityRole: 'header',
 }
 
-export const H2 = styled(NativeText, 'text-[28px] font-bold my-2')
-export const H3 = styled(NativeText, 'text-[24px] font-bold my-2 capitalize')
+export const H2 = styled(NativeText, 'text-[28px] font-bold leading-10')
+export const H3 = styled(
+  NativeText,
+  'text-[24px] font-bold  capitalize leading-10 '
+)
 export const BodyIntro = styled(NativeText, 'text-[20px] font-medium')
 export const BodyMain = styled(NativeText, 'text-[17px]')
 export const MediumText = styled(NativeText, 'text-[17px]')
 export const Caption = styled(NativeText, 'text-[15px]')
-export const Caption2 = styled(NativeText, 'text-[15px] font-semibold uppercase')
+export const Caption2 = styled(
+  NativeText,
+  'text-[15px] font-semibold uppercase'
+)
 export const SmallText = styled(NativeText, 'text-[13px]')
 export const SmallText2 = styled(NativeText, 'text-[13px] uppercase')
-
 
 /**
  * This is a more advanced component with custom styles and per-platform functionality

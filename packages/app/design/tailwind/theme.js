@@ -12,7 +12,8 @@ const theme = {
     'background': '#F2F6FF',
     'background-dark': '#1A2151',
     'background-2': '#E3E8FF',
-    'background-2-dark': '#1A2151'
+    'background-2-dark': '#1A2151',
+    'white': '#fff'
   }
 }
 

@@ -13,10 +13,21 @@ export function NavigationProvider({
         () => ({
           prefixes: [Linking.createURL('/')],
           config: {
-            initialRouteName: 'home',
+            initialRouteName: 'Motivation',
             screens: {
-              home: '',
-              'user-detail': 'user/:id',
+              // Main: {
+              //   path: 'main',
+              //   screens: {
+              //     Motivation: 'motivation',
+              //   },
+              // },
+              Auth: {
+                path: 'auth',
+                screens: {
+                  SignInPassword: 'sign-in-password/:email',
+                  SignInEmail: 'sign-in-email',
+                },
+              },
             },
           },
         }),
