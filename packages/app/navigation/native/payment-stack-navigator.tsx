@@ -4,10 +4,10 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { ActivityIndicator } from '../../components/activity-indicator'
 
 import {
-  Payment,
-  FailurePayment,
-  SuccessPayment,
-  Help,
+  PaymentScreen,
+  FailurePaymentScreen,
+  SuccessPaymentScreen,
+  HelpScreen,
 } from '../../features/payment'
 
 const Stack = createNativeStackNavigator<{
@@ -27,16 +27,16 @@ export default function PaymentStackNavigator() {
 
 const paymentScreens = [
   {
-    name: 'Payment',
-    component: Payment,
+    name: 'PaymentScreen',
+    component: PaymentScreen,
     options: {
       title: 'Thanh Toán',
       headerTitleAlign: 'center',
     },
   },
   {
-    name: 'FailurePayment',
-    component: FailurePayment,
+    name: 'FailurePaymentScreen',
+    component: FailurePaymentScreen,
     options: {
       title: 'Thanh Toán Thất Bại',
       headerTitleAlign: 'center',
@@ -44,12 +44,12 @@ const paymentScreens = [
   },
   {
     name: 'SuccessPayment',
-    component: SuccessPayment,
+    component: SuccessPaymentScreen,
     options: { title: 'Thanh Toán Thành Công', headerTitleAlign: 'center' },
   },
   {
-    name: 'Help',
-    component: Help,
+    name: 'HelpScreen',
+    component: HelpScreen,
     options: { title: 'Trợ Giúp', headerTitleAlign: 'center' },
   },
 ]

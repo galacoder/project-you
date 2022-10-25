@@ -1,3 +1,4 @@
+import { SpacerM } from 'app/design/spacing'
 import * as React from 'react'
 import {
   Text,
@@ -6,23 +7,47 @@ import {
   View,
   ImageBackground,
   ImageSourcePropType,
+  TouchableOpacity,
 } from 'react-native'
 import PersonNumberIcon from './person-number-icon'
+import { useNavigation } from '@react-navigation/native'
 
 type NumPerDetailCardType = {
   title?: string
   icon?: ImageSourcePropType
   subtitle?: string
+  onPress?: () => void
+  navigateScreenName: string
+  navigateParent: string
 }
 
-const NumPerDetailCard = ({ title, icon, subtitle }: NumPerDetailCardType) => {
+const NumPerDetailCard = ({
+  title,
+  icon,
+  subtitle,
+  onPress,
+  navigateScreenName,
+  navigateParent,
+}: NumPerDetailCardType) => {
+  const navigation = useNavigation()
+
   return (
-    <ImageBackground
+    <TouchableOpacity
+      style={styles.numPerDetailCardIcon}
+      activeOpacity={0.2}
+      onPress={() =>
+        navigation.navigate(navigateParent, {
+          screen: navigateScreenName,
+        })
+      }
+    >
+      {/* <ImageBackground
       style={styles.numPerDetailCardIcon}
       imageStyle={{ borderRadius: 8 }}
       resizeMode="cover"
       source={require('../../assets/background02.png')}
-    >
+    > */}
+      {/* <View style={styles.numPerDetailCardIcon}> */}
       <View style={styles.headerGroupView}>
         <View style={styles.layoutView}>
           <View style={styles.titleNiconView}>
@@ -36,6 +61,7 @@ const NumPerDetailCard = ({ title, icon, subtitle }: NumPerDetailCardType) => {
         </View>
         <Text style={styles.subtitleText}>{subtitle}</Text>
       </View>
+      <SpacerM />
       <View style={[styles.bottomIconsView, styles.mt8]}>
         <PersonNumberIcon
           number="6"
@@ -58,14 +84,13 @@ const NumPerDetailCard = ({ title, icon, subtitle }: NumPerDetailCardType) => {
           //   iconBg={require('../assets/iconbg.png')}
         />
       </View>
-    </ImageBackground>
+      {/* </View> */}
+      {/* </ImageBackground> */}
+    </TouchableOpacity>
   )
 }
 
 const styles = StyleSheet.create({
-  ml16: {
-    marginLeft: 16,
-  },
   mt8: {
     marginTop: 8,
   },
@@ -101,12 +126,12 @@ const styles = StyleSheet.create({
   subtitleText: {
     position: 'relative',
     fontSize: 13,
-    letterSpacing: -0.08,
+    // letterSpacing: -0.08,
     lineHeight: 18,
     fontFamily: 'Roboto',
     color: '#fff',
     textAlign: 'left',
-    width: 248,
+    width: '100%',
   },
   headerGroupView: {
     width: '100%',
@@ -118,15 +143,17 @@ const styles = StyleSheet.create({
     width: '100%',
     flexDirection: 'row',
     alignItems: 'flex-start',
-    justifyContent: 'flex-start',
+    justifyContent: 'space-between',
   },
   numPerDetailCardIcon: {
+    width: '100%',
     borderRadius: 10,
     flexDirection: 'column',
     padding: 16,
     boxSizing: 'border-box',
     alignItems: 'flex-start',
     justifyContent: 'flex-start',
+    backgroundColor: 'rgba(235, 235, 245, 0.18)',
   },
 })
 

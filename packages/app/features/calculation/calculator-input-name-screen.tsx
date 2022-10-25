@@ -9,7 +9,7 @@ import { View } from 'react-native'
 import { NavigationButtonsGroup } from 'app/components/button/navigation-group'
 import { Link } from 'solito/link'
 
-export const CalculatorInputName = () => {
+export const CalculatorInputNameScreen = () => {
   return (
     <Layout>
       <SpacerXXL />
@@ -28,11 +28,11 @@ export const CalculatorInputName = () => {
         //backward
         backButtonIconSrc={require('../../assets/icons/back_hand_icon.png')}
         backdNavigateParent="Walkthrough"
-        backScreenName="Start"
+        backScreenName="StartScreen"
         // backButtonName="Chưa"
         // forward
         forwardNavigateParent="Calculator"
-        forwardScreenName="CalculatorInputDOB"
+        forwardScreenName="CalculatorInputDOBScreen"
         // forwardButtonName="Có"
         forwardButtonIconSrc={require('../../assets/icons/forward_hand_icon.png')}
       />

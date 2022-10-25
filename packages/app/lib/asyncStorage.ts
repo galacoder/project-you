@@ -1,4 +1,4 @@
-import AsyncStorage from "@react-native-async-storage/async-storage"
+import AsyncStorage from '@react-native-async-storage/async-storage'
 
 //Storing string value
 export const storeStringData = async (key: string, value: any) => {
@@ -43,7 +43,7 @@ export const getStringData = async (key: string) => {
 export const getData = async (key: string) => {
   try {
     const jsonValue = await AsyncStorage.getItem(key)
-    return jsonValue != null ? JSON.parse(jsonValue) : null;
+    return jsonValue != null ? JSON.parse(jsonValue) : null
   } catch (e) {
     // error reading value
     console.log('I found an error trying to read local data', e)

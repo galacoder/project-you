@@ -5,17 +5,12 @@
 
 // import { StyleSheet, View } from "react-native";
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
-// import { createNativeStackNavigator } from '@react-navigation/native-stack'
-// import { ActivityIndicator } from '../../components/activity-indicator'
-// import React, { Suspense } from 'react'
-// import { Image } from 'react-native'
 
-// import { supabase } from '../lib/supabase'
+import { CalculatorInputNameScreen } from '../../features/calculation'
+import MotivationScreen from '../../features/motivation'
+import { UserProfileScreen } from '../../features/you/'
 
-import { CalculatorInputName } from '../../features/calculation'
-import Motivation from '../../features/motivation'
-import { UserProfile } from '../../features/you/'
-// import { P } from 'app/design/typography'
+import { LinearGradient } from 'expo-linear-gradient'
 
 const BottomTab = createBottomTabNavigator<{
   CalculatorLoading: undefined
@@ -27,10 +22,22 @@ const Tab = createBottomTabNavigator()
 
 const BottomTabNavigator = () => {
   return (
-    <Tab.Navigator>
-      <Tab.Screen name="Motivation" component={Motivation} />
-      <Tab.Screen name="UserProfile" component={UserProfile} />
-      <Tab.Screen name="CalculatorInputName" component={CalculatorInputName} />
+    <Tab.Navigator
+      screenOptions={{
+        tabBarStyle: {
+          position: 'absolute',
+          height: 68,
+          backgroundColor: 'rgba(255, 255, 255,0.3)',
+          width: '90%',
+          alignItems: 'center',
+          justifyContent: 'center',
+          alignSelf: 'center',
+        },
+      }}
+    >
+      <Tab.Screen name="Motivation" component={MotivationScreen} />
+      <Tab.Screen name="You" component={UserProfileScreen} />
+      <Tab.Screen name="Calculator" component={CalculatorInputNameScreen} />
     </Tab.Navigator>
   )
 }

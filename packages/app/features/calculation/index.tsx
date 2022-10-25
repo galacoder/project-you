@@ -1,5 +1,9 @@
-import { CalculatorInputName } from './calculator-input-name'
-import { CalculatorInputDOB } from './calculator-input-dob'
-import { CalculatorLoading } from './calculator-loading'
+import { CalculatorInputNameScreen } from './calculator-input-name-screen'
+import { CalculatorInputDOBScreen } from './calculator-input-dob-screen'
+import { CalculatorLoadingScreen } from './calculator-loading-screen'
 
-export { CalculatorInputName, CalculatorInputDOB, CalculatorLoading }
+export {
+  CalculatorInputNameScreen,
+  CalculatorInputDOBScreen,
+  CalculatorLoadingScreen,
+}

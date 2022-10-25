@@ -11,7 +11,7 @@ import {
 import NumPerDetailCard from '../../components/cards/num-per-detail-card'
 import CardMini from '../../components/cards/card-mini'
 import { Layout } from 'app/design/layout'
-import { SpacerXXL } from 'app/design/spacing'
+import { SpacerM, SpacerS, SpacerXXL } from 'app/design/spacing'
 import { Smartie } from 'app/components/smartie'
 
 const UserProfile = () => {
@@ -21,34 +21,43 @@ const UserProfile = () => {
 
       <Smartie />
 
-      <SpacerXXL />
-      <SpacerXXL />
-
       <View style={styles.homeInfoCardsView}>
         <View style={styles.layoutView3}>
           <NumPerDetailCard
             title="Wong Kwong Man Carmen"
             // icon={{ uri: 'icon8@3x.png' }}
             subtitle="13/09/1989"
+            navigateParent="You"
+            navigateScreenName="NumPersonDetailScreen"
           />
 
-          <View className="flex flex-row flex-wrap items-center justify-between flex-1 w-full">
-            <CardMini
-              title="Động Lực Hằng Ngày"
-              icon={require('../../assets/icons/sphere.png')}
-            />
-            <CardMini
-              title="Động Lực Hằng Ngày"
-              icon={require('../../assets/icons/sphere.png')}
-            />
-            <CardMini
-              title="Động Lực Hằng Ngày"
-              icon={require('../../assets/icons/sphere.png')}
-            />
-            <CardMini
-              title="Động Lực Hằng Ngày"
-              icon={require('../../assets/icons/sphere.png')}
-            />
+          <SpacerS />
+
+          <View className="flex-row flex-wrap items-center justify-between flex-1 w-full gap-y-1">
+            <View className="flex-row justify-between w-full">
+              <CardMini
+                title="Động Lực Hằng Ngày "
+                icon={require('../../assets/icons/sphere.png')}
+                // cardMini={require('../../assets/background02.png')}
+              />
+              <CardMini
+                title="Động Lực Hằng Ngày "
+                icon={require('../../assets/icons/sphere.png')}
+                // cardMini={require('../../assets/background02.png')}
+              />
+            </View>
+            <View className="flex-row justify-between w-full">
+              <CardMini
+                title="Động Lực Hằng Ngày "
+                icon={require('../../assets/icons/sphere.png')}
+                // cardMini={require('../../assets/background02.png')}
+              />
+              <CardMini
+                title="Động Lực Hằng Ngày "
+                icon={require('../../assets/icons/sphere.png')}
+                // cardMini={require('../../assets/background02.png')}
+              />
+            </View>
           </View>
         </View>
       </View>
@@ -56,23 +65,9 @@ const UserProfile = () => {
   )
 }
 
-const styles = StyleSheet.create({
-  ml4: {
-    marginLeft: 4,
-  },
-  ml10: {
-    marginLeft: 10,
-  },
-  mt8: {
-    marginTop: 8,
-  },
-  ml6: {
-    marginLeft: 6,
-  },
-  ml3: {
-    marginLeft: 3,
-  },
+const gap = 8
 
+const styles = StyleSheet.create({
   homeCardMiniGroup1View: {
     flexDirection: 'row',
     alignItems: 'flex-start',
@@ -111,8 +106,10 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     flex: 1,
     width: '100%',
-    height: 568,
+    height: '100%',
     overflow: 'hidden',
+    marginVertical: -(gap / 2),
+    marginHorizontal: -(gap / 2),
   },
 })
 

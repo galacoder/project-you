@@ -1,3 +1,3 @@
-import { Start } from './start'
+import { StartScreen } from './start-screen'
 
-export { Start }
+export { StartScreen }

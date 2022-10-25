@@ -15,12 +15,12 @@ export function NavigationProvider({
           config: {
             initialRouteName: 'Motivation',
             screens: {
-              // Main: {
-              //   path: 'main',
-              //   screens: {
-              //     Motivation: 'motivation',
-              //   },
-              // },
+              Main: {
+                path: 'main',
+                screens: {
+                  Motivation: 'motivation',
+                },
+              },
               Auth: {
                 path: 'auth',
                 screens: {

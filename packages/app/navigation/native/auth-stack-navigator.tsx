@@ -5,27 +5,33 @@ import { ActivityIndicator } from '../../components/activity-indicator'
 
 //SignUp
 import {
-  SignUpEmail,
-  SignUpPassword,
-  SignUpNoAccount,
-  SignUpPasswordConfirm,
+  SignUpEmailScreen,
+  SignUpPasswordScreen,
+  SignUpNoAccountScreen,
+  SignUpPasswordConfirmScreen,
 } from '../../features/auth/signup/'
 
 //SignIn
-import { SignInEmail, SignInPassword } from '../../features/auth/signin/'
+import {
+  SignInEmailScreen,
+  SignInPasswordScreen,
+} from '../../features/auth/signin/'
 
 //ForgotPassword
-import { CheckEmail, EmailReset } from '../../features/auth/forgot-password/'
+import {
+  CheckEmailScreen,
+  EmailResetScreen,
+} from '../../features/auth/forgot-password/'
 
 const Stack = createNativeStackNavigator<{
-  SignUpEmail: undefined
-  SignUpPassword: undefined
-  SignUpPasswordConfirm: undefined
-  SignUpNoAccount: undefined
-  SignInEmail: undefined
-  SignInPassword: undefined
-  CheckEmail: undefined
-  EmailReset: undefined
+  SignUpEmailScreen: undefined
+  SignUpPasswordScreen: undefined
+  SignUpPasswordConfirmScreen: undefined
+  SignUpNoAccountScreen: undefined
+  SignInEmailScreen: undefined
+  SignInPasswordScreen: undefined
+  CheckEmailScreen: undefined
+  EmailResetScreen: undefined
 }>()
 
 export default function AuthStackNavigator() {
@@ -38,44 +44,44 @@ export default function AuthStackNavigator() {
 
 const authScreens = [
   {
-    name: 'SignInEmail',
-    component: SignInEmail,
+    name: 'SignInEmailScreen',
+    component: SignInEmailScreen,
     options: {
       title: 'Điền Email',
       headerTitleAlign: 'center',
     },
   },
   {
-    name: 'SignInPassword',
-    component: SignInPassword,
+    name: 'SignInPasswordScreen',
+    component: SignInPasswordScreen,
     options: {
       title: 'Điền Mật Khẩu',
       headerTitleAlign: 'center',
     },
   },
   {
-    name: 'SignUpEmail',
-    component: SignUpEmail,
+    name: 'SignUpEmailScreen',
+    component: SignUpEmailScreen,
     options: { title: 'Điền Email', headerTitleAlign: 'center' },
   },
   {
-    name: 'SignUpPassword',
-    component: SignUpPassword,
+    name: 'SignUpPasswordScreen',
+    component: SignUpPasswordScreen,
     options: { title: 'Điền Mật Khẩu', headerTitleAlign: 'center' },
   },
   {
-    name: 'SignUpPasswordConfirm',
-    component: SignUpPasswordConfirm,
+    name: 'SignUpPasswordConfirmScreen',
+    component: SignUpPasswordConfirmScreen,
     options: { title: 'Xác Nhận Mật Khẩu', headerTitleAlign: 'center' },
   },
   {
     name: 'SignUpNoAccount',
-    component: SignUpNoAccount,
+    component: SignUpNoAccountScreen,
     options: { title: 'Đăng Ký', headerTitleAlign: 'center' },
   },
   {
-    name: 'EmailReset',
-    component: EmailReset,
+    name: 'EmailResetScreen',
+    component: EmailResetScreen,
     options: {
       title: 'Điền Email Đặt Lại Mật Khẩu',
       headerTitleAlign: 'center',
@@ -83,8 +89,8 @@ const authScreens = [
   },
 
   {
-    name: 'CheckEmail',
-    component: CheckEmail,
+    name: 'CheckEmailScreen',
+    component: CheckEmailScreen,
     options: { title: 'Kiểm Tra Email', headerTitleAlign: 'center' },
   },
 ]

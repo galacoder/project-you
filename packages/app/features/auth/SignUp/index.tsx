@@ -1,8 +1,13 @@
 //export all functions inside this folder
 
-import SignUpEmail from './sign-up-email'
-import SignUpPassword from './sign-up-password'
-import SignUpPasswordConfirm from './sign-up-password-confirm'
-import SignUpNoAccount from './sign-up-no-account'
+import SignUpEmailScreen from './sign-up-email-screen'
+import SignUpPasswordScreen from './sign-up-password-screen'
+import SignUpPasswordConfirmScreen from './sign-up-password-confirm-screen'
+import SignUpNoAccountScreen from './sign-up-no-account-screen'
 
-export { SignUpEmail, SignUpPassword, SignUpPasswordConfirm, SignUpNoAccount }
+export {
+  SignUpEmailScreen,
+  SignUpPasswordScreen,
+  SignUpPasswordConfirmScreen,
+  SignUpNoAccountScreen,
+}

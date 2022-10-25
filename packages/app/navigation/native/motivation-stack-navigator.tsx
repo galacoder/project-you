@@ -3,7 +3,7 @@ import React, { Suspense } from 'react'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { ActivityIndicator } from '../../components/activity-indicator'
 
-import Motivation from '../../features/motivation'
+import MotivationScreen from '../../features/motivation'
 
 const Stack = createNativeStackNavigator<{
   Motivation: undefined
@@ -19,8 +19,8 @@ export default function MotivationStackNavigator() {
 
 const motivationScreens = [
   {
-    name: 'Motivation',
-    component: Motivation,
+    name: 'MotivationScreen',
+    component: MotivationScreen,
     options: {
       title: 'Động Lực',
       headerTitleAlign: 'center',

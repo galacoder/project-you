@@ -5,17 +5,21 @@ import { ActivityIndicator } from '../../components/activity-indicator'
 
 //SignUp
 import {
-  UserProfile,
-  NumPersonDetail,
-  NumCategoryDetail,
-  NumUserList,
+  UserProfileScreen,
+  NumPersonDetailScreen,
+  NumCategoryDetailScreen,
+  NumUserListScreen,
+  NumActiveCategoryDetailScreen,
+  NumInactiveCategoryDetailScreen,
 } from '../../features/you'
 
 const Stack = createNativeStackNavigator<{
-  UserProfile: undefined
-  NumUserList: undefined
-  NumPersonDetail: undefined
-  NumCategoryDetail: undefined
+  UserProfileScreen: undefined
+  NumUserListScreen: undefined
+  NumPersonDetailScreen: undefined
+  NumCategoryDetailScreen: undefined
+  NumActiveCategoryDetailScreen: undefined
+  NumInactiveCategoryDetailScreen: undefined
 }>()
 
 export default function YouStackNavigator() {
@@ -28,30 +32,40 @@ export default function YouStackNavigator() {
 
 const youScreens = [
   {
-    name: 'UserProfile',
-    component: UserProfile,
+    name: 'UserProfileScreen',
+    component: UserProfileScreen,
     options: {
       title: 'Thông Tin Cá Nhân',
       headerTitleAlign: 'center',
     },
   },
   {
-    name: 'NumUserList',
-    component: NumUserList,
+    name: 'NumUserListScreen',
+    component: NumUserListScreen,
     options: {
       title: 'Danh Sách Người Dùng',
       headerTitleAlign: 'center',
     },
   },
   {
-    name: 'NumPersonDetail',
-    component: NumPersonDetail,
+    name: 'NumPersonDetailScreen',
+    component: NumPersonDetailScreen,
     options: { title: 'Thông Tin Chi Tiết', headerTitleAlign: 'center' },
   },
   {
-    name: 'NumCategoryDetail',
-    component: NumCategoryDetail,
+    name: 'NumCategoryDetailScreen',
+    component: NumCategoryDetailScreen,
     options: { title: 'Thông Tin TSH', headerTitleAlign: 'center' },
+  },
+  {
+    name: 'NumActiveCategoryDetailScreen',
+    component: NumActiveCategoryDetailScreen,
+    options: { title: 'Thông Tin Active', headerTitleAlign: 'center' },
+  },
+  {
+    name: 'NumInactiveCategoryDetailScreen',
+    component: NumInactiveCategoryDetailScreen,
+    options: { title: 'Thông Tin Inactive', headerTitleAlign: 'center' },
   },
 ]
 

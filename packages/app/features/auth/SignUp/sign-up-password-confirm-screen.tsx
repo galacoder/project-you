@@ -3,39 +3,35 @@ import { Smartie } from 'app/components/smartie'
 import InputField from 'app/components/text-input'
 import { Layout } from 'app/design/layout'
 import { SpacerXXL } from 'app/design/spacing'
-import { H3, P } from 'app/design/typography'
+import { H3 } from 'app/design/typography'
 import React from 'react'
-import { Link, TextLink } from 'solito/link'
 
-function SignInemail() {
+function SignUpPasswordConfirmScreen() {
   return (
     <Layout>
       <SpacerXXL />
 
       <Smartie />
-      <H3 className="text-white">Email của bạn là</H3>
+      <H3 className="text-white">Xác nhận mật khẩu của bạn là</H3>
       <InputField
-        PlaceholderText="example@gmail.com"
+        PlaceholderText="Admin123"
         PlaceholderTextColor="#999"
-        KeyboardType="email-address"
+        KeyboardType="default"
+        SecureTextEntry={true}
       />
 
       <SpacerXXL />
       <SpacerXXL />
 
-      <Link className="text-white" href="/auth/sign-in-password">
-        <P className="text-white">Next</P>
-      </Link>
-
       <NavigationButtonsGroup
         //backward
         backButtonIconSrc={require('../../../assets/icons/back_hand_icon.png')}
         backdNavigateParent="Auth"
-        backScreenName="SignUpNoAccount"
+        backScreenName="SignUpPassword"
         // backButtonName="Chưa"
         // forward
-        forwardNavigateParent="Auth"
-        forwardScreenName="SignInPassword"
+        forwardNavigateParent="Main"
+        forwardScreenName="Motivation"
         // forwardButtonName="Có"
         forwardButtonIconSrc={require('../../../assets/icons/forward_hand_icon.png')}
       />
@@ -43,4 +39,4 @@ function SignInemail() {
   )
 }
 
-export default SignInemail
+export default SignUpPasswordConfirmScreen

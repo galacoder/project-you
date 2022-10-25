@@ -5,20 +5,15 @@ import { Layout } from 'app/design/layout'
 import { SpacerXXL } from 'app/design/spacing'
 import { H3 } from 'app/design/typography'
 import React from 'react'
-import { createParam } from 'solito'
 
-const { useParam } = createParam()
-
-function SignUpPassword() {
-  const [email] = useParam('email')
-
+function SignUpPasswordScreen() {
   return (
     <Layout>
       <SpacerXXL />
 
       <Smartie />
       <H3 className="text-white">Mật khẩu của bạn là</H3>
-      <H3 className="text-white">{email}</H3>
+
       <InputField
         PlaceholderText="Admin123"
         PlaceholderTextColor="#999"
@@ -44,4 +39,4 @@ function SignUpPassword() {
   )
 }
 
-export default SignUpPassword
+export default SignUpPasswordScreen

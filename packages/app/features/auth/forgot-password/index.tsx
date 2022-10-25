@@ -1,4 +1,4 @@
-import CheckEmail from './check-email'
-import EmailReset from './email-reset'
+import CheckEmailScreen from './check-email-screen'
+import EmailResetScreen from './email-reset-screen'
 
-export { CheckEmail, EmailReset }
+export { CheckEmailScreen, EmailResetScreen }

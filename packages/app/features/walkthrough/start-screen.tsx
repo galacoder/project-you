@@ -6,7 +6,7 @@ import { SpacerXXL } from 'app/design/spacing'
 import { NavigationButtonsGroup } from 'app/components/button/navigation-group'
 import { SingleButton } from 'app/components/button/single'
 
-export const Start = () => {
+export const StartScreen = () => {
   return (
     <Layout>
       <SpacerXXL />
@@ -23,7 +23,7 @@ export const Start = () => {
         //backward
         backButtonIconSrc={require('../../assets/icons/thumbs-down.png')}
         backdNavigateParent="Calculator"
-        backScreenName="CalculatorInputName"
+        backScreenName="CalculatorInputNameScreen"
         backButtonName="Chưa"
         // forward
         forwardNavigateParent="Auth"
@@ -33,7 +33,7 @@ export const Start = () => {
       />
       <SingleButton
         navigateParent="Main"
-        navigateScreenName="Motivation"
+        navigateScreenName="MotivationScreen"
         iconSrc={require('../../assets/icons/sphere.png')}
       />
     </Layout>

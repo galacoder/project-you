@@ -4,7 +4,7 @@ import { Layout } from 'app/design/layout'
 import { SpacerXXL } from 'app/design/spacing'
 import { StyleSheet, View } from 'react-native'
 
-function Motivation() {
+function MotivationScreen() {
   return (
     <Layout>
       <SpacerXXL />
@@ -32,4 +32,4 @@ function Motivation() {
   )
 }
 
-export default Motivation
+export default MotivationScreen

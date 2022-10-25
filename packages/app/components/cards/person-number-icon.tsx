@@ -42,8 +42,6 @@ const styles = StyleSheet.create({
   },
   numberText: {
     position: 'absolute',
-    top: 4,
-    left: 7.5,
     fontSize: 14,
     letterSpacing: -0.15,
     lineHeight: 19,
@@ -61,6 +59,7 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     justifyContent: 'center',
     alignItems: 'center',
+    marginBottom: 6,
   },
   numberNameText: {
     position: 'relative',

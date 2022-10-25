@@ -6,45 +6,57 @@ import {
   View,
   ImageBackground,
   ImageSourcePropType,
+  Dimensions,
 } from 'react-native'
 
 type CardMiniType = {
   title?: string
   icon?: ImageSourcePropType
+  cardMini?: ImageSourcePropType
 }
 
-const CardMini = ({ title, icon }: CardMiniType) => {
+const CardMini = ({ title, icon, cardMini }: CardMiniType) => {
   return (
-    <ImageBackground
-      style={styles.cardMiniIcon}
-      imageStyle={{ borderRadius: 8 }}
-      resizeMode="cover"
-      source={require('../../assets/background02.png')}
-    >
-      <View style={styles.layoutView}>
-        <View style={styles.titleIconView}>
-          <Text style={styles.titleText}>{title}</Text>
-          <Image
-            style={[styles.icon, styles.ml4]}
-            resizeMode="cover"
-            source={icon}
-          />
+    <>
+      {ImageBackground ? (
+        <ImageBackground
+          style={styles.cardMiniIcon}
+          resizeMode="cover"
+          source={cardMini}
+        >
+          <View style={styles.layoutView}>
+            <View style={styles.titleNiconGroupView}>
+              <Text style={styles.titleText}>{title}</Text>
+              <Image style={styles.icon} resizeMode="cover" source={icon} />
+            </View>
+          </View>
+        </ImageBackground>
+      ) : (
+        <View style={styles.cardMiniIcon}>
+          <View style={styles.layoutView}>
+            <View style={styles.titleNiconGroupView}>
+              <Text style={styles.titleText}>{title}</Text>
+              <Image style={styles.icon} resizeMode="cover" source={icon} />
+            </View>
+          </View>
         </View>
-      </View>
-    </ImageBackground>
+      )}
+    </>
   )
 }
 
+const gap = 10
+const itemPerRow = 2
+const totalGapSize = (itemPerRow - 1) * gap
+const windowWidth = Dimensions.get('window').width
+const childWidth = (windowWidth - totalGapSize) / itemPerRow
+
 const styles = StyleSheet.create({
-  ml4: {
-    marginLeft: 4,
-  },
   titleText: {
     position: 'relative',
     fontSize: 12,
     lineHeight: 16,
     fontWeight: '700',
-    fontFamily: 'Roboto',
     color: '#fff',
     textAlign: 'left',
     display: 'flex',
@@ -57,29 +69,34 @@ const styles = StyleSheet.create({
     height: 18,
     flexShrink: 0,
   },
-  titleIconView: {
-    width: 104,
+  titleNiconGroupView: {
+    alignSelf: 'stretch',
     overflow: 'hidden',
     flexDirection: 'row',
     alignItems: 'flex-start',
-    justifyContent: 'flex-start',
+    justifyContent: 'space-between',
   },
   layoutView: {
-    width: 104,
+    alignSelf: 'stretch',
+    height: 18,
+    flexShrink: 0,
     flexDirection: 'column',
     alignItems: 'flex-start',
-    justifyContent: 'flex-start',
+    justifyContent: 'space-between',
   },
   cardMiniIcon: {
+    width: childWidth,
+    flex: 1,
     borderRadius: 10,
-    width: 168,
-    height: 106,
-    flexShrink: 0,
+    height: childWidth / 2,
     flexDirection: 'column',
     padding: 16,
     boxSizing: 'border-box',
     alignItems: 'flex-start',
-    justifyContent: 'space-between',
+    justifyContent: 'flex-start',
+    backgroundColor: 'rgba(235, 235, 245, 0.18)',
+    marginVertical: gap / 2,
+    marginHorizontal: gap / 2,
   },
 })
 

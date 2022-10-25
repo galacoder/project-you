@@ -5,7 +5,7 @@ import { SpacerXXL } from 'app/design/spacing'
 import { H3 } from 'app/design/typography'
 import React from 'react'
 
-function SignUpNoAccount() {
+function SignUpNoAccountScreen() {
   return (
     <Layout>
       <SpacerXXL />
@@ -36,4 +36,4 @@ function SignUpNoAccount() {
   )
 }
 
-export default SignUpNoAccount
+export default SignUpNoAccountScreen

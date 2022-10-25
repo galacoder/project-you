@@ -3,10 +3,10 @@ import React, { Suspense } from 'react'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { ActivityIndicator } from '../../components/activity-indicator'
 
-import { Start } from '../../features/walkthrough'
+import { StartScreen } from '../../features/walkthrough'
 
 const Stack = createNativeStackNavigator<{
-  Start: undefined
+  StartScreen: undefined
 }>()
 
 export default function WalkthroughStackNavigator() {
@@ -19,8 +19,8 @@ export default function WalkthroughStackNavigator() {
 
 const motivationScreens = [
   {
-    name: 'Start',
-    component: Start,
+    name: 'StartScreen',
+    component: StartScreen,
     options: {
       title: 'Start',
       headerTitleAlign: 'center',

@@ -5,32 +5,25 @@ import { Layout } from 'app/design/layout'
 import { SpacerXXL } from 'app/design/spacing'
 import { H3, P } from 'app/design/typography'
 import React from 'react'
+import { Link, TextLink } from 'solito/link'
 
-import { createParam } from 'solito'
-import { Link } from 'solito/link'
-
-const { useParam } = createParam()
-
-function SignInPassword() {
-  const [email] = useParam('email')
+function SignInEmailScreen() {
   return (
     <Layout>
       <SpacerXXL />
 
       <Smartie />
-      <H3 className="text-white">Mật khẩu của bạn là</H3>
-      <H3 className="text-white">{email}</H3>
+      <H3 className="text-white">Email của bạn là</H3>
       <InputField
-        PlaceholderText="Admin123"
+        PlaceholderText="example@gmail.com"
         PlaceholderTextColor="#999"
-        KeyboardType="default"
-        SecureTextEntry={true}
+        KeyboardType="email-address"
       />
 
       <SpacerXXL />
       <SpacerXXL />
 
-      <Link className="text-white" href="/Auth/sign-in-email">
+      <Link className="text-white" href="/auth/sign-in-password">
         <P className="text-white">Next</P>
       </Link>
 
@@ -38,11 +31,11 @@ function SignInPassword() {
         //backward
         backButtonIconSrc={require('../../../assets/icons/back_hand_icon.png')}
         backdNavigateParent="Auth"
-        backScreenName="SignUpEmail"
+        backScreenName="SignUpNoAccountScreen"
         // backButtonName="Chưa"
         // forward
         forwardNavigateParent="Auth"
-        forwardScreenName="SignUpPasswordConfirm"
+        forwardScreenName="SignInPasswordScreen"
         // forwardButtonName="Có"
         forwardButtonIconSrc={require('../../../assets/icons/forward_hand_icon.png')}
       />
@@ -50,4 +43,4 @@ function SignInPassword() {
   )
 }
 
-export default SignInPassword
+export default SignInEmailScreen

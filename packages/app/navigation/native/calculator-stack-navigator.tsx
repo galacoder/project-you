@@ -6,9 +6,9 @@ import { ActivityIndicator } from '../../components/activity-indicator'
 
 //Auth Import
 import {
-  CalculatorInputDOB,
-  CalculatorLoading,
-  CalculatorInputName,
+  CalculatorInputDOBScreen,
+  CalculatorLoadingScreen,
+  CalculatorInputNameScreen,
 } from '../../features/calculation/'
 
 const Stack = createNativeStackNavigator()
@@ -23,8 +23,8 @@ export default function CalculatorStackNavigator() {
 
 const calculatorScreens = [
   {
-    name: 'CalculatorInputName',
-    component: CalculatorInputName,
+    name: 'CalculatorInputNameScreen',
+    component: CalculatorInputNameScreen,
     options: {
       title: 'Nhập Tên',
       headerTitleAlign: 'center',
@@ -32,13 +32,13 @@ const calculatorScreens = [
     },
   },
   {
-    name: 'CalculatorInputDOB',
-    component: CalculatorInputDOB,
+    name: 'CalculatorInputDOBScreen',
+    component: CalculatorInputDOBScreen,
     options: { title: 'Nhập Ngày sinh', headerTitleAlign: 'center' },
   },
   {
-    name: 'CalculatorLoading',
-    component: CalculatorLoading,
+    name: 'CalculatorLoadingScreen',
+    component: CalculatorLoadingScreen,
     options: { title: 'Đang Tính', headerTitleAlign: 'center' },
   },
 ]

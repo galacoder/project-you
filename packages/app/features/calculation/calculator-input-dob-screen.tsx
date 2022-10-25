@@ -7,7 +7,7 @@ import DatePicker from '@dietime/react-native-date-picker'
 import { useState } from 'react'
 import { NavigationButtonsGroup } from 'app/components/button/navigation-group'
 
-export const CalculatorInputDOB = () => {
+export const CalculatorInputDOBScreen = () => {
   const [date, setDate] = useState()
 
   return (
@@ -30,11 +30,11 @@ export const CalculatorInputDOB = () => {
         //backward
         backButtonIconSrc={require('../../assets/icons/back_hand_icon.png')}
         backdNavigateParent="Calculator"
-        backScreenName="CalculatorInputName"
+        backScreenName="CalculatorInputNameScreen"
         // backButtonName="Chưa"
         // forward
         forwardNavigateParent="Calculator"
-        forwardScreenName="CalculatorLoading"
+        forwardScreenName="CalculatorLoadingScreen"
         // forwardButtonName="Có"
         forwardButtonIconSrc={require('../../assets/icons/forward_hand_icon.png')}
       />

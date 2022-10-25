@@ -3,11 +3,11 @@ import { Provider } from 'app/provider'
 import 'react-native-url-polyfill/auto'
 
 export default function App() {
-  // const session = {
-  //   user: true,
-  // }
+  const session = {
+    user: true,
+  }
 
-  const session = {}
+  // const session = {}
 
   return (
     <Provider>

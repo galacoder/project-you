@@ -1,6 +1,15 @@
-import NumUserList from './num-user-list'
-import NumCategoryDetail from './num-category-detail'
-import NumPersonDetail from './num-person-detail'
-import UserProfile from './user-profile'
+import NumUserListScreen from './num-user-list-screen'
+import NumCategoryDetailScreen from './num-category-detail-screen'
+import NumPersonDetailScreen from './num-person-detail-screen'
+import UserProfileScreen from './user-profile-screen'
+import NumActiveCategoryDetailScreen from './num-active-cateogory-detail-screen'
+import NumInactiveCategoryDetailScreen from './num-inactive-category-detail-screen'
 
-export { NumUserList, NumCategoryDetail, NumPersonDetail, UserProfile }
+export {
+  NumUserListScreen,
+  NumCategoryDetailScreen,
+  NumPersonDetailScreen,
+  UserProfileScreen,
+  NumActiveCategoryDetailScreen,
+  NumInactiveCategoryDetailScreen,
+}

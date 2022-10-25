@@ -1,6 +1,6 @@
-import FailurePayment from './failure'
-import SuccessPayment from './success'
-import Help from './help'
-import Payment from './payment'
+import FailurePaymentScreen from './failure-screen'
+import SuccessPaymentScreen from './success-screen'
+import HelpScreen from './help-screen'
+import PaymentScreen from './payment-screen'
 
-export { FailurePayment, SuccessPayment, Help, Payment }
+export { FailurePaymentScreen, SuccessPaymentScreen, HelpScreen, PaymentScreen }
