@@ -1,3 +1,1 @@
-import { SafeAreaProvider } from 'react-native-safe-area-context'
-
-export const SafeArea = SafeAreaProvider
+export { SafeAreaProvider as SafeArea } from 'react-native-safe-area-context'

@@ -1,5 +1,5 @@
 {
-  "name": "solito-with-tailwind",
+  "name": "you-xo",
   "private": true,
   "workspaces": [
     "apps/*",
@@ -40,6 +40,13 @@
     "prepare": "husky install",
     "push-release": "git push --follow-tags origin main"
   },
+  "resolutions": {
+    "metro": "0.73.1"
+  },
+  "nohoist": [
+    "**/expo-router",
+    "**/expo-router/**"
+  ],
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
       "npm run lint -- --quiet --fix"

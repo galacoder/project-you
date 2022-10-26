@@ -26,7 +26,7 @@ export const CalculatorInputDOBScreen = () => {
         height={200}
       />
       {/* <DatePicker date={date} onDateChange={setDate} /> */}
-      <NavigationButtonsGroup
+      {/* <NavigationButtonsGroup
         //backward
         backButtonIconSrc={require('../../assets/icons/back_hand_icon.png')}
         backdNavigateParent="Calculator"
@@ -37,7 +37,7 @@ export const CalculatorInputDOBScreen = () => {
         forwardScreenName="CalculatorLoadingScreen"
         // forwardButtonName="Có"
         forwardButtonIconSrc={require('../../assets/icons/forward_hand_icon.png')}
-      />
+      /> */}
     </Layout>
   )
 }
