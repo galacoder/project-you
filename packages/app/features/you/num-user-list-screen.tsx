@@ -1,7 +1,16 @@
-import React from 'react'
+import { Smartie } from 'app/components/smartie'
+import { Layout } from 'app/design/layout'
+import { SpacerM, SpacerXL, SpacerXXL } from 'app/design/spacing'
 
 function NumUserList() {
-  return <div>NumUserList</div>
+  return (
+    <Layout>
+      <SpacerXXL />
+      <Smartie />
+
+    </Layout>
+  )
+
 }
 
 export default NumUserList

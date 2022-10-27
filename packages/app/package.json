@@ -3,10 +3,6 @@
   "name": "app",
   "main": "index.ts",
   "dependencies": {
-    "@motify/components": "^0.18.0",
-    "@motify/core": "^0.18.0",
-    "@react-navigation/native": "^6.0.8",
-    "@react-navigation/native-stack": "^6.5.0",
     "expo-linear-gradient": "^11.4.0",
     "expo-linking": "^3.2.2",
     "moti": "0.20.0",

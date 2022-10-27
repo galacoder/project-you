@@ -23,12 +23,10 @@ function SignUpNoAccountScreen() {
       <NavigationButtonsGroup
         //backward
         backButtonIconSrc={require('../../../assets/icons/back_hand_icon.png')}
-        backdNavigateParent="Calculator"
-        backScreenName="CalculatorInputDOB"
+        backHref="/calculator/input-dob"
         // backButtonName="Chưa"
         // forward
-        forwardNavigateParent="Auth"
-        forwardScreenName="SignUpEmail"
+        forwardHref="/auth/sign-up-email"
         // forwardButtonName="Có"
         forwardButtonIconSrc={require('../../../assets/icons/forward_hand_icon.png')}
       />

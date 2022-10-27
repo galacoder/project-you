@@ -2,24 +2,21 @@ import { SingleButton } from 'app/components/button/single'
 import { ImageSourcePropType, View } from 'react-native'
 
 type NavigationGroupType = {
-  backScreenName: string
+  backHref: string
   backButtonIconSrc?: ImageSourcePropType
   backButtonName?: string
-  backdNavigateParent?: string
-  forwardScreenName: string
+  forwardHref: string
   forwardButtonName?: string
   forwardButtonIconSrc?: ImageSourcePropType
-  forwardNavigateParent?: string
 }
 
 export const NavigationButtonsGroup = (props: NavigationGroupType) => {
   return (
     <>
-      <View className="flex-row gap-3 ">
+      <View className="flex-row ">
         <SingleButton
           name={props.backButtonName || ''}
-          navigateScreenName={props.backScreenName || ''}
-          navigateParent={props.backdNavigateParent}
+          href={props.backHref || ''}
           iconSrc={
             props.backButtonIconSrc ||
             require('../../assets/icons/back_hand_icon.png')
@@ -27,8 +24,7 @@ export const NavigationButtonsGroup = (props: NavigationGroupType) => {
         />
         <SingleButton
           name={props.forwardButtonName || ''}
-          navigateScreenName={props.forwardScreenName}
-          navigateParent={props.forwardNavigateParent}
+          href={props.forwardHref}
           iconSrc={
             props.forwardButtonIconSrc ||
             require('../../assets/icons/forward_hand_icon.png')

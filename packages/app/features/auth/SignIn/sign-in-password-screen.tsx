@@ -38,11 +38,11 @@ function SignInPasswordScreen() {
         //backward
         backButtonIconSrc={require('../../../assets/icons/back_hand_icon.png')}
         backdNavigateParent="Auth"
-        backScreenName="SignUpEmailScreen"
+        backHref="SignUpEmailScreen"
         // backButtonName="Chưa"
         // forward
         forwardNavigateParent="Auth"
-        forwardScreenName="SignUpPasswordConfirmScreen"
+        forwardHref="SignUpPasswordConfirmScreen"
         // forwardButtonName="Có"
         forwardButtonIconSrc={require('../../../assets/icons/forward_hand_icon.png')}
       />

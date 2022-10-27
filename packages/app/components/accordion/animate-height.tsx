@@ -1,5 +1,5 @@
-import '@motify/core'
-import '@motify/components'
+// import '@motify/core'
+// import '@motify/components'
 
 import React from 'react'
 import { MotiView, TransitionConfig, useDynamicAnimation } from 'moti'

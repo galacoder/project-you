@@ -3,7 +3,6 @@ import { Smartie } from 'app/components/smartie'
 import { Layout } from 'app/design/layout'
 import { SpacerXXL } from 'app/design/spacing'
 import { H3 } from 'app/design/typography'
-import React from 'react'
 import { ActivityIndicator } from 'react-native'
 
 export function CalculatorLoadingScreen() {
@@ -23,12 +22,10 @@ export function CalculatorLoadingScreen() {
       <NavigationButtonsGroup
         //backward
         backButtonIconSrc={require('../../assets/icons/back_hand_icon.png')}
-        backdNavigateParent="Calculator"
-        backScreenName="CalculatorInputDOBScreen"
+        backHref="/calculator/input-dob"
         // backButtonName="Chưa"
         // forward
-        forwardNavigateParent="Auth"
-        forwardScreenName="SignUpNoAccountScreen"
+        forwardHref="auth/sign-up-no-account"
         // forwardButtonName="Có"
         forwardButtonIconSrc={require('../../assets/icons/forward_hand_icon.png')}
       />

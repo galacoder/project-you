@@ -38,24 +38,24 @@ const UserProfile = () => {
               <CardMini
                 title="Động Lực Hằng Ngày "
                 icon={require('../../assets/icons/sphere.png')}
-                // cardMini={require('../../assets/background02.png')}
+              // cardMini={require('../../assets/background02.png')}
               />
               <CardMini
                 title="Động Lực Hằng Ngày "
                 icon={require('../../assets/icons/sphere.png')}
-                // cardMini={require('../../assets/background02.png')}
+              // cardMini={require('../../assets/background02.png')}
               />
             </View>
             <View className="flex-row justify-between w-full">
               <CardMini
                 title="Động Lực Hằng Ngày "
                 icon={require('../../assets/icons/sphere.png')}
-                // cardMini={require('../../assets/background02.png')}
+              // cardMini={require('../../assets/background02.png')}
               />
               <CardMini
                 title="Động Lực Hằng Ngày "
                 icon={require('../../assets/icons/sphere.png')}
-                // cardMini={require('../../assets/background02.png')}
+              // cardMini={require('../../assets/background02.png')}
               />
             </View>
           </View>

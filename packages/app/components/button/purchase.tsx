@@ -5,9 +5,9 @@ import {
   View,
   Text,
   ImageSourcePropType,
-  TouchableOpacity,
 } from 'react-native'
-import { useNavigation } from '@react-navigation/native'
+
+import { MotiLink } from 'solito/moti'
 
 type ButtonPurchaseType = {
   title?: string
@@ -15,26 +15,31 @@ type ButtonPurchaseType = {
   iconSrc?: ImageSourcePropType
   navigateScreenName?: string
   navigateParent?: string
+  children?: JSX.Element
+  href: string
+  as?: string
 }
 
 const PurchaseButton = ({
   title,
   subtitle,
   iconSrc,
-  navigateScreenName,
-  navigateParent,
+  href,
+  as
 }: ButtonPurchaseType) => {
-  const navigation = useNavigation()
   return (
-    <TouchableOpacity
-      style={styles.buttonPurchaseView}
-      activeOpacity={0.2}
-      onPress={() =>
-        navigation.navigate(navigateParent, {
-          screen: navigateScreenName,
-        })
-      }
-    >
+
+    <MotiLink
+
+      href={href}
+      as={as}
+      animate={({ hovered, pressed }) => {
+        'worklet'
+        return {
+          scale: pressed ? 0.9 : hovered ? 1.1 : 1,
+        }
+      }}>
+
       <View style={styles.wrapperView}>
         <View style={styles.iconView}>
           <Image style={styles.icon} resizeMode="cover" source={iconSrc} />
@@ -44,8 +49,9 @@ const PurchaseButton = ({
           <Text style={[styles.subtitleText, styles.mt4]}>{subtitle}</Text>
         </View>
       </View>
-    </TouchableOpacity>
+    </MotiLink>
   )
+
 }
 
 const styles = StyleSheet.create({

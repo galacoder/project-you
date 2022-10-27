@@ -3,11 +3,11 @@ import { H3 } from 'app/design/typography'
 import { Smartie } from 'app/components/smartie'
 import { Layout } from 'app/design/layout'
 import { SpacerXXL } from 'app/design/spacing'
-// s
-import { TextLink, Link as SolitoLink } from 'solito/link'
-import { Text, View } from 'react-native'
 
-import { Stack, Link } from 'expo-router'
+
+import { Stack } from 'expo-router'
+import { NavigationButtonsGroup } from '../../components/button/navigation-group'
+import { SingleButton } from '../../components/button/single'
 
 export const StartScreen = () => {
   return (
@@ -22,19 +22,20 @@ export const StartScreen = () => {
       <SpacerXXL />
       <SpacerXXL />
 
-      <View>
-        <Link className="text-white" href="/calculator/input-dob">
-          Next
-        </Link>
-      </View>
-
-      <SolitoLink viewProps={{ style: { height: 100 } }} href="/">
-        <Text className="mt-8 text-white">Calculator</Text>
-      </SolitoLink>
-
-      {/* <TextLink className="text-white" href="/calculator/input-dob">
-        Go <Text>Home</Text>
-      </TextLink> */}
+      <NavigationButtonsGroup
+        //backward
+        backButtonIconSrc={require('../../assets/icons/thumbs-down.png')}
+        backHref="/calculator/input-name"
+        backButtonName="Chưa"
+        // forward
+        forwardHref="/auth/signin/sign-in-email"
+        forwardButtonName="Có"
+        forwardButtonIconSrc={require('../../assets/icons/thumbs-up.png')}
+      />
+      <SingleButton
+        href='/motivation'
+        iconSrc={require('../../assets/icons/sphere.png')}
+      />
     </Layout>
   )
 }
