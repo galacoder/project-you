@@ -1,4 +1,4 @@
-import React from 'react'
+// import React from 'react'
 import { View, Pressable, StyleSheet, Text } from 'react-native'
 import { AnimateHeight } from './animate-height'
 import { Ionicons } from '@expo/vector-icons'

@@ -1,4 +1,4 @@
-import * as React from 'react'
+// import * as React from 'react'
 import { Text, StyleSheet, View, Image, ImageBackground } from 'react-native'
 import NumberIndicator from './number-indicator'
 

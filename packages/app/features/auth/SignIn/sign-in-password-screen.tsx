@@ -4,7 +4,7 @@ import InputField from 'app/components/text-input'
 import { Layout } from 'app/design/layout'
 import { SpacerXXL } from 'app/design/spacing'
 import { H3, P } from 'app/design/typography'
-import React from 'react'
+// import React from 'react'
 
 import { createParam } from 'solito'
 import { Link } from 'solito/link'
@@ -30,19 +30,17 @@ function SignInPasswordScreen() {
       <SpacerXXL />
       <SpacerXXL />
 
-      <Link className="text-white" href="/Auth/sign-in-email">
+      <Link className="text-white" href="/auth/signin/sign-in-email">
         <P className="text-white">Next</P>
       </Link>
 
       <NavigationButtonsGroup
         //backward
         backButtonIconSrc={require('../../../assets/icons/back_hand_icon.png')}
-        backdNavigateParent="Auth"
-        backHref="SignUpEmailScreen"
+        backHref="/auth/signup/sign-up-email-screen"
         // backButtonName="Chưa"
         // forward
-        forwardNavigateParent="Auth"
-        forwardHref="SignUpPasswordConfirmScreen"
+        forwardHref="/auth/signup/sign-up-password-confirm-screen"
         // forwardButtonName="Có"
         forwardButtonIconSrc={require('../../../assets/icons/forward_hand_icon.png')}
       />

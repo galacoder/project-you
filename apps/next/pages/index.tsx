@@ -1,3 +1,3 @@
-import { FirstScreen } from 'app/features/walkthrough/FirstScreen'
+import { StartScreen } from 'app/features/walkthrough'
 
-export default FirstScreen
+export default StartScreen

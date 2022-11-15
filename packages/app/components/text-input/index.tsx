@@ -1,4 +1,4 @@
-import * as React from 'react'
+// import * as React from 'react'
 import { TextInput, StyleSheet } from 'react-native'
 
 type InputFieldType = {

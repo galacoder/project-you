@@ -1,4 +1,4 @@
-import * as React from 'react'
+// import * as React from 'react'
 import {
   Image,
   StyleSheet,
@@ -25,12 +25,10 @@ const PurchaseButton = ({
   subtitle,
   iconSrc,
   href,
-  as
+  as,
 }: ButtonPurchaseType) => {
   return (
-
     <MotiLink
-
       href={href}
       as={as}
       animate={({ hovered, pressed }) => {
@@ -38,8 +36,8 @@ const PurchaseButton = ({
         return {
           scale: pressed ? 0.9 : hovered ? 1.1 : 1,
         }
-      }}>
-
+      }}
+    >
       <View style={styles.wrapperView}>
         <View style={styles.iconView}>
           <Image style={styles.icon} resizeMode="cover" source={iconSrc} />
@@ -51,7 +49,6 @@ const PurchaseButton = ({
       </View>
     </MotiLink>
   )
-
 }
 
 const styles = StyleSheet.create({

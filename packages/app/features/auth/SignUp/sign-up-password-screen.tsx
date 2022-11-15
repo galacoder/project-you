@@ -26,10 +26,10 @@ function SignUpPasswordScreen() {
       <NavigationButtonsGroup
         //backward
         backButtonIconSrc={require('../../../assets/icons/back_hand_icon.png')}
-        backHref="/auth/sign-up-email"
+        backHref="/auth/signup/sign-up-email-screen"
         // backButtonName="Chưa"
         // forward
-        forwardHref="/auth/sign-up-password-confirm"
+        forwardHref="/auth/signup/sign-up-password-confirm-screen"
         // forwardButtonName="Có"
         forwardButtonIconSrc={require('../../../assets/icons/forward_hand_icon.png')}
       />

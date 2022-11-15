@@ -1,5 +1,5 @@
 import { SpacerM } from 'app/design/spacing'
-import * as React from 'react'
+// import * as React from 'react'
 import {
   Text,
   StyleSheet,

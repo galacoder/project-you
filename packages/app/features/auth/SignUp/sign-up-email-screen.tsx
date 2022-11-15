@@ -4,7 +4,7 @@ import InputField from 'app/components/text-input'
 import { Layout } from 'app/design/layout'
 import { SpacerXXL } from 'app/design/spacing'
 import { H3 } from 'app/design/typography'
-import React from 'react'
+// import React from 'react'
 
 function SignUpEmailScreen() {
   return (
@@ -25,10 +25,10 @@ function SignUpEmailScreen() {
       <NavigationButtonsGroup
         //backward
         backButtonIconSrc={require('../../../assets/icons/back_hand_icon.png')}
-        backHref="/auth/sign-up-no-account"
+        backHref="/auth/signup/sign-up-no-account-screen"
         // backButtonName="Chưa"
         // forward
-        forwardHref="/auth/sign-up-password"
+        forwardHref="/auth/signup/sign-up-password-screen"
         // forwardButtonName="Có"
         forwardButtonIconSrc={require('../../../assets/icons/forward_hand_icon.png')}
       />

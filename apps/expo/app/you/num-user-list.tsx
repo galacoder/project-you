@@ -1,7 +1,5 @@
-import React from 'react'
+import { NumUserListScreen } from 'app/features/you/'
 
-function NumUserList() {
-  return <div>NumUserList</div>
+export default function Page() {
+  return <NumUserListScreen />
 }
-
-export default NumUserList

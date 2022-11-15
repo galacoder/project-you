@@ -1,7 +1,7 @@
 // import '@motify/core'
 // import '@motify/components'
 
-import React from 'react'
+// import React from 'react'
 import { MotiView, TransitionConfig, useDynamicAnimation } from 'moti'
 import { StyleSheet, Platform } from 'react-native'
 import { useDerivedValue, useSharedValue } from 'react-native-reanimated'

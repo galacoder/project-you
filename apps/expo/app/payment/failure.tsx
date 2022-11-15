@@ -1,7 +1,5 @@
-import React from 'react'
+import {FailurePaymentScreen} from 'app/features/payment/'
 
-function FailurePaymentScreen() {
-  return <div>FailurePayment</div>
+export default function Page() {
+  return <FailurePaymentScreen />
 }
-
-export default FailurePaymentScreen

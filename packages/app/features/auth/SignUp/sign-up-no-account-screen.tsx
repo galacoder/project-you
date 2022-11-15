@@ -3,7 +3,7 @@ import { Smartie } from 'app/components/smartie'
 import { Layout } from 'app/design/layout'
 import { SpacerXXL } from 'app/design/spacing'
 import { H3 } from 'app/design/typography'
-import React from 'react'
+// import React from 'react'
 
 function SignUpNoAccountScreen() {
   return (
@@ -23,10 +23,10 @@ function SignUpNoAccountScreen() {
       <NavigationButtonsGroup
         //backward
         backButtonIconSrc={require('../../../assets/icons/back_hand_icon.png')}
-        backHref="/calculator/input-dob"
+        backHref="/calculator/input-dob-screen"
         // backButtonName="Chưa"
         // forward
-        forwardHref="/auth/sign-up-email"
+        forwardHref="/auth/signup/sign-up-email-screen"
         // forwardButtonName="Có"
         forwardButtonIconSrc={require('../../../assets/icons/forward_hand_icon.png')}
       />

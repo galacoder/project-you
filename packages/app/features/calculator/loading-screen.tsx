@@ -22,10 +22,10 @@ export function CalculatorLoadingScreen() {
       <NavigationButtonsGroup
         //backward
         backButtonIconSrc={require('../../assets/icons/back_hand_icon.png')}
-        backHref="/calculator/input-dob"
+        backHref="/calculator/input-dob-screen"
         // backButtonName="Chưa"
         // forward
-        forwardHref="auth/sign-up-no-account"
+        forwardHref="auth/signup/sign-up-no-account-screen"
         // forwardButtonName="Có"
         forwardButtonIconSrc={require('../../assets/icons/forward_hand_icon.png')}
       />
