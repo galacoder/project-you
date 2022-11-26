@@ -27,11 +27,10 @@ export const CalculatorInputNameScreen = () => {
         backHref="/"
         // backButtonName="Chưa"
         // forward
-        forwardHref="/cauculator/input-dob"
+        forwardHref="/calculator/input-dob"
         // forwardButtonName="Có"
         forwardButtonIconSrc={require('../../assets/icons/forward_hand_icon.png')}
       />
-
     </Layout>
   )
 }

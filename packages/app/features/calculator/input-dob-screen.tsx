@@ -1,7 +1,7 @@
 import { H3 } from 'app/design/typography'
 import { Smartie } from 'app/components/smartie'
 import { Layout } from 'app/design/layout'
-import { SingleButton } from 'app/components/button/single'
+// import { SingleButton } from 'app/components/button/single'
 import DatePicker from '@dietime/react-native-date-picker'
 // import DatePicker from 'react-native-date-picker'
 import { useState } from 'react'
@@ -26,18 +26,16 @@ export const CalculatorInputDOBScreen = () => {
         height={200}
       />
       {/* <DatePicker date={date} onDateChange={setDate} /> */}
-      {/* <NavigationButtonsGroup
+      <NavigationButtonsGroup
         //backward
         backButtonIconSrc={require('../../assets/icons/back_hand_icon.png')}
-        backdNavigateParent="Calculator"
-        backScreenName="CalculatorInputNameScreen"
+        backHref="/calculator/input-name"
         // backButtonName="Chưa"
         // forward
-        forwardNavigateParent="Calculator"
-        forwardScreenName="CalculatorLoadingScreen"
+        forwardHref="/calculator/loading"
         // forwardButtonName="Có"
         forwardButtonIconSrc={require('../../assets/icons/forward_hand_icon.png')}
-      /> */}
+      />
     </Layout>
   )
 }

@@ -11,7 +11,7 @@
     "expo-linking": "~3.2.2",
     "expo-notifications": "^0.16.1",
     "expo-permissions": "^13.2.0",
-    "expo-router": "^0.0.33",
+    "expo-router": "^0.0.36",
     "expo-splash-screen": "~0.16.1",
     "expo-status-bar": "~1.4.0",
     "install": "^0.13.0",
@@ -47,4 +47,3 @@
   "private": true,
   "name": "expo-app"
 }
-

@@ -25,7 +25,7 @@ export function CalculatorLoadingScreen() {
         backHref="/calculator/input-dob"
         // backButtonName="Chưa"
         // forward
-        forwardHref="auth/sign-up-no-account"
+        forwardHref="/auth/signup/sign-up-no-account"
         // forwardButtonName="Có"
         forwardButtonIconSrc={require('../../assets/icons/forward_hand_icon.png')}
       />

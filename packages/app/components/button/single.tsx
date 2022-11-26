@@ -19,7 +19,7 @@ export const SingleButton = (props: Props) => {
 
 
   return (
-    <View className="flex-row  justify-center px-2 py-1 bg-white w-fit rounded-2xl h-16 m-3">
+    <View className="flex-row justify-center px-2 py-1 bg-white w-fit rounded-2xl h-16 m-3">
       <MotiLink
         href={props.href}
         as={props.as}
@@ -33,11 +33,11 @@ export const SingleButton = (props: Props) => {
         <StyledComponent
           component={Image}
           source={props.iconSrc}
-          className="w-12 h-12"
+          className="w-16 h-12"
         />
 
         {/* <Image source={require('../../assets/icons/next_arrow_icon.png')} /> */}
-        <P className="text-black"> {props.name || ''}</P>
+        <P className="text-white text-center"> {props.name || ''}</P>
       </MotiLink >
     </View >
   )

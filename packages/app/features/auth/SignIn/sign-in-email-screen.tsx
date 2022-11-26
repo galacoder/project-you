@@ -4,7 +4,6 @@ import InputField from 'app/components/text-input'
 import { Layout } from 'app/design/layout'
 import { SpacerXXL } from 'app/design/spacing'
 import { H3, P } from 'app/design/typography'
-import React from 'react'
 import { Link, TextLink } from 'solito/link'
 
 function SignInEmailScreen() {
@@ -30,10 +29,10 @@ function SignInEmailScreen() {
       <NavigationButtonsGroup
         //backward
         backButtonIconSrc={require('../../../assets/icons/back_hand_icon.png')}
-        backHref="/auth/sign-up-no-account"
+        backHref="/auth/signup/sign-up-no-account"
         // backButtonName="Chưa"
         // forward
-        forwardHref="/auth/sign-in-password"
+        forwardHref="/auth/signin/sign-in-password"
         // forwardButtonName="Có"
         forwardButtonIconSrc={require('../../../assets/icons/forward_hand_icon.png')}
       />

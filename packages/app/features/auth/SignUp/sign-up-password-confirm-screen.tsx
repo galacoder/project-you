@@ -4,7 +4,6 @@ import InputField from 'app/components/text-input'
 import { Layout } from 'app/design/layout'
 import { SpacerXXL } from 'app/design/spacing'
 import { H3 } from 'app/design/typography'
-import React from 'react'
 
 function SignUpPasswordConfirmScreen() {
   return (
@@ -26,10 +25,10 @@ function SignUpPasswordConfirmScreen() {
       <NavigationButtonsGroup
         //backward
         backButtonIconSrc={require('../../../assets/icons/back_hand_icon.png')}
-        backHref="/auth/sign-up-password"
+        backHref="/auth/signup/sign-up-password"
         // backButtonName="Chưa"
         // forward
-        forwardHref="/motivation"
+        forwardHref="/tabs"
         // forwardButtonName="Có"
         forwardButtonIconSrc={require('../../../assets/icons/forward_hand_icon.png')}
       />

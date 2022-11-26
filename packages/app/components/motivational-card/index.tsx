@@ -8,6 +8,7 @@ import {
   TouchableOpacity,
   ImageSourcePropType,
 } from 'react-native'
+import { MotiLink } from 'solito/moti'
 
 type MotivationalCardType = {
   title?: string
@@ -16,6 +17,8 @@ type MotivationalCardType = {
   linkText?: string
   logo: ImageSourcePropType
   className?: string
+  href: string
+  as?: string
 }
 
 const MotivationalCard = ({
@@ -25,14 +28,25 @@ const MotivationalCard = ({
   linkText,
   logo,
   className,
+  href,
+  as,
 }: MotivationalCardType) => {
   return (
-    <TouchableOpacity
-      style={styles.motivationalCardTouchableOpacity}
-      activeOpacity={0.2}
-      onPress={() => {}}
-      className={className}
+    <MotiLink
+      href={href}
+      as={as}
+      animate={({ hovered, pressed }) => {
+        'worklet'
+        return {
+          scale: pressed ? 0.9 : hovered ? 1.1 : 1,
+        }
+      }}
+      containerStyle={styles.motivationalCardTouchableOpacity}
     >
+      {/* <View
+        style={styles.motivationalCardTouchableOpacity}
+        className={className}
+      > */}
       <View style={styles.layoutView}>
         <View style={styles.titleIconGroupView}>
           <Text style={styles.titleText}>{title || 'THẦN SỐ HỌC'}</Text>
@@ -62,7 +76,8 @@ const MotivationalCard = ({
           </View>
         </View>
       </View>
-    </TouchableOpacity>
+      {/* </View> */}
+    </MotiLink>
   )
 }
 

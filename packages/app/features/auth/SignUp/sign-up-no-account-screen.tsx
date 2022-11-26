@@ -26,7 +26,7 @@ function SignUpNoAccountScreen() {
         backHref="/calculator/input-dob"
         // backButtonName="Chưa"
         // forward
-        forwardHref="/auth/sign-up-email"
+        forwardHref="/auth/singup/sign-up-email"
         // forwardButtonName="Có"
         forwardButtonIconSrc={require('../../../assets/icons/forward_hand_icon.png')}
       />
