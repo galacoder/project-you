@@ -10,6 +10,8 @@ export const CalculatorInputNameScreen = () => {
   return (
     <Layout>
       <SpacerXXL />
+      <SpacerXXL />
+
 
       <Smartie />
       <H3 className="text-white">Họ tên đầy đủ của bạn là</H3>

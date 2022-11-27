@@ -1,16 +1,35 @@
-import MotivationalCard from 'app/components/motivational-card'
 import { Smartie } from 'app/components/smartie'
 import { Layout } from 'app/design/layout'
-import { SpacerXXL } from 'app/design/spacing'
-import { StyleSheet, View } from 'react-native'
-import { Link, Tabs } from 'expo-router'
-import { H1 } from 'app/design/typography'
+import { SpacerXXL, SpacerM } from 'app/design/spacing'
+import MotivationalCard from 'app/components/cards/motivational-card'
 
 function MotivationScreen() {
   return (
-    <View>
-      <H1>Index</H1>
-    </View>
+    <Layout>
+      <SpacerXXL />
+      <SpacerXXL />
+
+      <Smartie />
+      <SpacerM />
+
+      <MotivationalCard
+        title="THẦN SỐ HỌC"
+        descriptionText="3 giai đoạn của cuộc đời trong Nhân số học."
+        authorText="Smartie"
+        learnMoreText="Xem chi tiết "
+      />
+
+      <MotivationalCard
+        title="THẦN SỐ HỌC"
+        descriptionText="3 giai đoạn của cuộc đời trong Nhân số học."
+        authorText="Smartie"
+      />
+
+
+
+      <SpacerM />
+    </Layout>
+
   )
 }
 

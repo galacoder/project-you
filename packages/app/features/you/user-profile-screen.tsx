@@ -18,6 +18,7 @@ const UserProfile = () => {
   return (
     <Layout>
       <SpacerXXL />
+      <SpacerXXL />
 
       <Smartie />
 
