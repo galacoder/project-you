@@ -1,40 +1,52 @@
 import { Link, Tabs, Stack } from 'expo-router'
 import { Ionicons } from '@expo/vector-icons';
 import { BlurView } from 'expo-blur';
-import { StyleSheet } from 'react-native'
-import { P } from 'app/design/typography'
-import { SpacerS } from 'app/design/spacing'
+import { StyleSheet, View } from 'react-native'
+import GamificationIndicators from 'app/components/gamification'
 
-
-export default function AppLayout() {
+export default function AppLayout({ route, navigation }) {
   return (
     <>
-      {/*  */}
+      {/* Header config */}
+      {console.log('route', route)}
       <Stack.Screen
         options={{
-          // headerShown: false,
-          headerBackVisible: false,
-          headerTransparent: true,
-          headerTitleStyle: { color: 'white' },
-          headerTitleAlign: 'left',
-          headerBackground: () => (
-            <BlurView tint="dark" intensity={80} style={StyleSheet.absoluteFill} />
-          ),
+          headerShown: false,
+          // headerBackVisible: false,
+          // headerTransparent: true,
+          // headerTitleStyle: { color: 'white' },
+          // headerTitleAlign: 'left',
+          // headerBackground: () => (
+          //   <BlurView tint="dark" intensity={80} style={StyleSheet.absoluteFill} />
+          // ),
 
-          headerRight: () => (
-            <>
-              <P className="text-white">Crown</P>
-              <SpacerS />
-              <P className="text-white">Heart</P>
-            </>
-          )
+          // headerRight: () => (
+          //   <>
+          //     {/* TODO: Input the Indicator API here*/}
+          //     <GamificationIndicators />
+          //   </>
+          // )
         }}
       />
 
       {/* Tabs Config */}
       <Tabs initialRouteName='profile' screenOptions={({ route }) => ({
+        // headerShown: false,
+        headerBackVisible: false,
+        headerTransparent: true,
+        headerTitleStyle: { color: 'white' },
+        headerTitleAlign: 'left',
+        headerBackground: () => (
+          <BlurView tint="dark" intensity={80} style={StyleSheet.absoluteFill} />
+        ),
 
-        headerShown: false,
+        headerRight: () => (
+          <View style={{ paddingRight: 16 }}>
+            {/* TODO: Input the Indicator API here*/}
+            <GamificationIndicators />
+          </View>
+        ),
+
         tabBarIcon: ({ focused, color, size }) => {
 
           let iconName: any;

@@ -32,10 +32,10 @@ export const StartScreen = () => {
         forwardButtonName="Có"
         forwardButtonIconSrc={require('../../assets/icons/thumbs-up.png')}
       />
-      <SingleButton
-        href='/motivation'
-        iconSrc={require('../../assets/icons/sphere.png')}
-      />
+      {/* <SingleButton */}
+      {/*   href='/motivation' */}
+      {/*   iconSrc={require('../../assets/icons/sphere.png')} */}
+      {/* /> */}
     </Layout>
   )
 }

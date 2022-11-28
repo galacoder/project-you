@@ -29,9 +29,9 @@ function SignInPasswordScreen() {
       <SpacerXXL />
       <SpacerXXL />
 
-      <Link className="text-white" href="/Auth/sign-in-email">
-        <P className="text-white">Next</P>
-      </Link>
+      {/* <Link className="text-white" href="/Auth/sign-in-email"> */}
+      {/*   <P className="text-white">Next</P> */}
+      {/* </Link> */}
 
       <NavigationButtonsGroup
         //backward

@@ -22,9 +22,9 @@ function SignInEmailScreen() {
       <SpacerXXL />
       <SpacerXXL />
 
-      <Link className="text-white" href="/auth/sign-in-password">
-        <P className="text-white">Next</P>
-      </Link>
+      {/* <Link className="text-white" href="/auth/sign-in-password"> */}
+      {/*   <P className="text-white">Next</P> */}
+      {/* </Link> */}
 
       <NavigationButtonsGroup
         //backward

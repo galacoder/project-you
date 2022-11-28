@@ -11,7 +11,7 @@ function SignUpPasswordConfirmScreen() {
       <SpacerXXL />
 
       <Smartie />
-      <H3 className="text-white">Xác nhận mật khẩu của bạn là</H3>
+      <H3 className="text-white text-center">Xác nhận mật khẩu của bạn là</H3>
       <InputField
         PlaceholderText="Admin123"
         PlaceholderTextColor="#999"

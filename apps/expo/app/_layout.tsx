@@ -13,18 +13,10 @@ export default function App() {
 
   return (
     <Provider>
-      {/* <Stack screenOptions={{ */}
-      {/*   headerBackVisible: false, */}
-      {/*   headerTitle: () => null, */}
-      {/*   headerTransparent: true, */}
-      {/*   headerTitleStyle: { color: 'white' }, */}
-      {/*   headerTitleAlign: 'left', */}
-      {/*   headerBackground: () => ( */}
-      {/*     <BlurView tint="dark" intensity={80} style={StyleSheet.absoluteFill} /> */}
-      {/*   ), */}
-
-      {/* }} /> */}
-      <Stack />
+      <Stack screenOptions={{
+        headerShown: false,
+      }} />
+      {/* <Stack /> */}
     </Provider>
   )
 }
