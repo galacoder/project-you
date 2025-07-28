@@ -6,12 +6,7 @@ const LayoutView = styled(
   'flex top-0 sm:justify-center items-center w-full h-full '
 )
 
-const ChildrenView = styled(
-  View,
-  'flex w-full sm:justify-center items-center px-[16px] '
-)
-
-export const Layout = ({ children }) => {
+const Layout = ({ children }) => {
   return (
     <LayoutView>
       <ImageBackground
@@ -19,8 +14,16 @@ export const Layout = ({ children }) => {
         resizeMode="cover"
         source={require('../assets/background01.png')}
       />
-      <ChildrenView>{children}</ChildrenView>
+      <PaddingHorizontal>{children}</PaddingHorizontal>
     </LayoutView>
+  )
+}
+
+const PaddingHorizontal = ({ children }) => {
+  return (
+    <View className="flex w-full w-full items-center px-[16px] sm:justify-center ">
+      {children}
+    </View>
   )
 }
 
@@ -38,3 +41,5 @@ const styles = StyleSheet.create({
     maxHeight: '100%',
   },
 })
+
+export { Layout }

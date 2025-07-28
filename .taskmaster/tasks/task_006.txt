@@ -1,0 +1,160 @@
+# Task ID: 6
+# Title: NativeWind to Gluestack UI Migration
+# Status: pending
+# Dependencies: None
+# Priority: high
+# Description: Complete UI framework migration for modern component system
+# Details:
+Convert className props to Gluestack components, update typography, refactor layouts, migrate interactive elements
+
+# Test Strategy:
+
+
+# Subtasks:
+## 1. Create API endpoints directory structure [pending]
+### Dependencies: None
+### Description: Set up organized API endpoints directory structure with proper routing and middleware support for React Server Components
+### Details:
+Implementation Steps:
+1. Create `/api` directory in `apps/expo/app/api/`
+2. Set up route handlers using Expo Router API routes
+3. Create middleware for authentication and validation
+4. Set up API request/response types
+5. Create API error handling utilities
+6. Set up API logging and monitoring
+7. Create API testing utilities
+8. Document API structure and conventions
+
+Directory Structure:
+```
+apps/expo/app/api/
+├── auth/
+│   ├── login/route.ts       # POST /api/auth/login
+│   ├── logout/route.ts      # POST /api/auth/logout
+│   └── profile/route.ts     # GET/PUT /api/auth/profile
+├── calculator/
+│   └── route.ts             # POST /api/calculator
+├── user/
+│   └── [id]/route.ts        # GET/PUT /api/user/[id]
+├── categories/
+│   ├── route.ts             # GET /api/categories
+│   └── [id]/route.ts        # GET /api/categories/[id]
+└── middleware/
+    ├── auth.ts              # Authentication middleware
+    ├── validation.ts        # Request validation
+    └── cors.ts              # CORS handling
+```
+
+Files to create:
+- `packages/app/lib/types/api.ts` - API type definitions
+- `packages/app/lib/api/error-handler.ts` - API error handling
+- `packages/app/lib/api/middleware.ts` - Common middleware
+- `packages/app/lib/api/validation.ts` - Request validation
+- `packages/app/lib/api/auth.ts` - Auth utilities
+
+Test Strategy:
+1. API Route Tests: All endpoints respond correctly
+2. Middleware Tests: Auth and validation work
+3. Error Handling Tests: Proper error responses
+4. Type Safety Tests: Request/response typing
+5. Performance Tests: API response times
+
+Quality Gates:
+- API routes follow consistent patterns
+- Middleware functions correctly
+- API errors are properly handled
+- API responses are type-safe
+- API documentation is comprehensive
+
+## 2. Identify and migrate business logic to API endpoints [pending]
+### Dependencies: None
+### Description: Extract business logic from client-side code and migrate to server-side API endpoints for better security and performance
+### Details:
+Implementation Steps:
+1. Audit existing client-side business logic in `packages/app/lib/`
+2. Identify logic suitable for server-side execution:
+   - `numCalculator.ts` - Numerology calculations
+   - Authentication validation logic
+   - User profile data processing
+   - Category and feature unlocking logic
+3. Create server-side equivalents in API routes
+4. Implement server-side validation and sanitization
+5. Add proper error handling and logging
+6. Create client-side API call functions
+7. Update components to use API calls instead of direct logic
+8. Remove client-side business logic where appropriate
+
+Business Logic Migration Targets:
+- Calculator logic → `/api/calculator/route.ts`
+- Auth validation → `/api/auth/*/route.ts`
+- Profile updates → `/api/user/[id]/route.ts`
+- Category access → `/api/categories/*/route.ts`
+
+Files to modify:
+- `packages/app/lib/numCalculator.ts` → `apps/expo/app/api/calculator/route.ts`
+- Auth logic → Various auth API routes
+- Profile logic → User API routes
+- Category logic → Category API routes
+- Update components to use API calls
+
+Test Strategy:
+1. Logic Parity Tests: Server logic matches client behavior
+2. Security Tests: Server validation prevents malicious input
+3. Performance Tests: API calls are efficient
+4. Error Handling Tests: Proper error responses
+5. Integration Tests: Components work with API calls
+
+Quality Gates:
+- Business logic properly secured on server
+- API calls replace direct client logic
+- Server validation prevents security issues
+- API performance meets requirements
+- Client components updated to use APIs
+
+## 3. Set up React Server Components integration [pending]
+### Dependencies: None
+### Description: Configure React Server Components for server-side rendering and data fetching with proper hydration and client boundaries
+### Details:
+Implementation Steps:
+1. Configure Expo for React Server Components support
+2. Identify components suitable for server rendering:
+   - User profile screens (static data)
+   - Category listing screens (cacheable)
+   - Motivational card listings (content-heavy)
+   - Help and information screens (static)
+3. Create server component versions
+4. Set up proper client/server boundaries with 'use client' directives
+5. Implement server-side data fetching patterns
+6. Configure caching and revalidation strategies
+7. Set up hydration and streaming
+8. Test server components across platforms
+
+Server Component Candidates:
+```
+packages/app/features/you/user-profile-screen.tsx → Server Component
+packages/app/features/motivation/index.tsx → Server Component  
+packages/app/components/cards/motivational-card.tsx → Server Component
+packages/app/features/calculator/input-*.tsx → Client Component (interactive)
+```
+
+Files to modify:
+- Expo configuration for RSC support
+- Convert static screens to server components
+- Add 'use client' to interactive components
+- Update data fetching patterns
+- Configure server-side caching
+
+Test Strategy:
+1. Hydration Tests: Server/client state matches
+2. Performance Tests: Server rendering improves load times
+3. Caching Tests: Server caching works correctly
+4. Interactive Tests: Client components work post-hydration
+5. Cross-Platform Tests: RSC works on all platforms
+
+Quality Gates:
+- Server components render correctly
+- Client boundaries are properly defined
+- Hydration occurs without mismatches
+- Performance improves with server rendering
+- Interactive features work after hydration
+

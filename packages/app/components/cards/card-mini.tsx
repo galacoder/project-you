@@ -1,4 +1,3 @@
-import * as React from 'react'
 import {
   Text,
   StyleSheet,
@@ -8,19 +7,35 @@ import {
   ImageSourcePropType,
   Dimensions,
 } from 'react-native'
+import { MotiLink } from 'solito/moti'
 
 type CardMiniType = {
   title?: string
   icon?: ImageSourcePropType
   cardMini?: ImageSourcePropType
+  href?: any
+  as?: string
 }
 
-const CardMini = ({ title, icon, cardMini }: CardMiniType) => {
+const CardMini = ({ title, icon, cardMini, href, as }: CardMiniType) => {
   return (
-    <>
+
+    <MotiLink
+      href={href}
+      as={as}
+      animate={({ hovered, pressed }) => {
+        'worklet'
+        return {
+          scale: pressed ? 0.9 : hovered ? 1.1 : 1,
+        }
+      }}
+
+      containerStyle={styles.cardMiniIcon}
+    >
+
       {ImageBackground ? (
         <ImageBackground
-          style={styles.cardMiniIcon}
+          // style={styles.cardMiniIcon}
           resizeMode="cover"
           source={cardMini}
         >
@@ -41,11 +56,11 @@ const CardMini = ({ title, icon, cardMini }: CardMiniType) => {
           </View>
         </View>
       )}
-    </>
+    </MotiLink>
   )
 }
 
-const gap = 10
+const gap = 6
 const itemPerRow = 2
 const totalGapSize = (itemPerRow - 1) * gap
 const windowWidth = Dimensions.get('window').width
@@ -59,9 +74,9 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     color: '#fff',
     textAlign: 'left',
-    display: 'flex',
+    flex: 1,
+    flexShrink: 1,
     alignItems: 'center',
-    width: 80,
   },
   icon: {
     position: 'relative',
@@ -77,12 +92,14 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   layoutView: {
+    width: 100,
     alignSelf: 'stretch',
-    height: 18,
+    height: 16,
     flexShrink: 0,
     flexDirection: 'column',
     alignItems: 'flex-start',
     justifyContent: 'space-between',
+    backgroundColor: 'rgba(235, 235, 245, 0)',
   },
   cardMiniIcon: {
     width: childWidth,
@@ -90,7 +107,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     height: childWidth / 2,
     flexDirection: 'column',
-    padding: 16,
+    padding: 8,
     boxSizing: 'border-box',
     alignItems: 'flex-start',
     justifyContent: 'flex-start',

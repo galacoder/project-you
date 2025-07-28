@@ -1,0 +1,124 @@
+# Task ID: 3
+# Title: UI Framework Migration Setup
+# Status: pending
+# Dependencies: None
+# Priority: high
+# Description: Install Gluestack UI v2 and prepare for NativeWind removal
+# Details:
+Install Gluestack UI v2, configure theme system, and audit NativeWind usage for migration planning
+
+# Test Strategy:
+
+
+# Subtasks:
+## 1. Install Gluestack UI v2 core packages [pending]
+### Dependencies: None
+### Description: Add Gluestack UI v2 dependencies with peer dependency resolution
+### Details:
+## PR-Ready Implementation
+
+### Files to Modify
+- All `package.json` files
+- Dependencies configuration
+
+### Implementation Steps
+1. Install @gluestack-ui/themed core package
+2. Install required peer dependencies
+3. Verify version compatibility across workspace
+4. Test basic component import and rendering
+5. Document new dependency additions
+
+### Test Strategy
+- ✅ All packages install without conflicts
+- ✅ Basic Gluestack component renders
+- ✅ No peer dependency warnings
+- ✅ TypeScript types available
+- ✅ Bundle size impact acceptable
+
+### Quality Gates
+- [ ] Gluestack UI v2 installed successfully
+- [ ] No dependency conflicts
+- [ ] TypeScript support working
+- [ ] Basic components importable
+
+### Acceptance Criteria
+- Gluestack UI v2 core packages installed
+- All peer dependencies resolved
+- Basic component functionality verified
+- No breaking dependency changes
+
+## 2. Configure Gluestack theme system [pending]
+### Dependencies: None
+### Description: Set up theme configuration and providers for consistent design system
+### Details:
+## PR-Ready Implementation
+
+### Files to Modify
+- Theme configuration files
+- Root app providers
+- `packages/app/design/theme.ts`
+- App entry points
+
+### Implementation Steps
+1. Create theme configuration file
+2. Set up GluestackUIProvider at app root
+3. Configure custom theme tokens if needed
+4. Test theme provider integration
+5. Validate theme switching functionality
+
+### Test Strategy
+- ✅ Theme provider renders without errors
+- ✅ Components receive theme context
+- ✅ Theme tokens accessible throughout app
+- ✅ Theme switching works (if implemented)
+- ✅ No provider conflicts with existing setup
+
+### Quality Gates
+- [ ] Theme system properly configured
+- [ ] All components have access to theme
+- [ ] No provider hierarchy conflicts
+- [ ] Theme tokens properly typed
+
+### Acceptance Criteria
+- Gluestack theme system operational
+- Components can access theme tokens
+- Provider properly integrated at app root
+- Theme customization possible
+
+## 3. Audit NativeWind usage for migration planning [pending]
+### Dependencies: None
+### Description: Complete inventory of NativeWind usage and create migration strategy
+### Details:
+## PR-Ready Implementation
+
+### Files to Modify
+- Create migration mapping document
+- Component usage audit
+- NativeWind configuration analysis
+
+### Implementation Steps
+1. Scan all files for className usage patterns
+2. Categorize NativeWind usage by complexity
+3. Map NativeWind classes to Gluestack equivalents
+4. Identify components requiring custom styling
+5. Create migration priority order
+
+### Test Strategy
+- ✅ Complete usage inventory generated
+- ✅ All className patterns documented
+- ✅ Migration complexity assessed
+- ✅ Gluestack mapping validated
+- ✅ No usage patterns missed
+
+### Quality Gates
+- [ ] Complete NativeWind usage catalog
+- [ ] Migration strategy documented
+- [ ] Complexity estimates provided
+- [ ] Component priority order established
+
+### Acceptance Criteria
+- All NativeWind usage identified
+- Migration plan with complexity estimates
+- Component-to-Gluestack mapping complete
+- Removal strategy documented
+

@@ -1,0 +1,140 @@
+# Task ID: 4
+# Title: State Management & Data Fetching Setup
+# Status: pending
+# Dependencies: None
+# Priority: high
+# Description: Install and configure Zustand and React Query for modern state management
+# Details:
+Install Zustand with persistence, React Query for server state, and configure integration
+
+# Test Strategy:
+
+
+# Subtasks:
+## 1. Install Zustand for client state management [pending]
+### Dependencies: None
+### Description: Add Zustand state management library to the project with proper configuration for React Native and web compatibility
+### Details:
+Implementation Steps:
+1. Install Zustand: `bun add zustand`
+2. Install React Native async storage for persistence: `bun add @react-native-async-storage/async-storage`
+3. Install Zustand persist middleware: `bun add zustand/middleware`
+4. Create base store configuration in `packages/app/stores/index.ts`
+5. Set up TypeScript types for store state
+6. Configure store persistence for user preferences
+7. Create store provider wrapper component
+8. Update app entry points to use store provider
+
+Files to modify:
+- `packages/app/package.json` - Add dependencies
+- `packages/app/stores/index.ts` - Create base store config
+- `packages/app/stores/types.ts` - TypeScript interfaces
+- `packages/app/provider/store-provider.tsx` - Store provider component
+- `apps/expo/app/_layout.tsx` - Wrap with store provider
+- `packages/app/features/*/index.tsx` - Import store hooks where needed
+
+Test Strategy:
+1. Unit Tests: Store actions and state updates
+2. Integration Tests: Store persistence across app restarts
+3. Cross-Platform Tests: Store functionality on iOS, Android, Web
+4. Performance Tests: Store update performance with large state
+5. Memory Tests: Store cleanup and subscription management
+
+Quality Gates:
+- Store state is type-safe with TypeScript
+- Store persistence works correctly
+- Store updates trigger component re-renders
+- No memory leaks from store subscriptions
+- Store works identically across all platforms
+
+## 2. Install React Query for server state management [pending]
+### Dependencies: None
+### Description: Add React Query (TanStack Query) for efficient server state management, caching, and synchronization
+### Details:
+Implementation Steps:
+1. Install React Query: `bun add @tanstack/react-query`
+2. Install React Query devtools: `bun add @tanstack/react-query-devtools`
+3. Install React Query persist client: `bun add @tanstack/query-sync-storage-persister`
+4. Create query client configuration in `packages/app/lib/query-client.ts`
+5. Set up query provider wrapper component
+6. Configure offline support and background refetching
+7. Set up query devtools for development
+8. Create base query hooks structure
+
+Files to modify:
+- `packages/app/package.json` - Add dependencies
+- `packages/app/lib/query-client.ts` - Query client configuration
+- `packages/app/provider/query-provider.tsx` - Query provider component
+- `packages/app/hooks/queries/index.ts` - Base query hooks
+- `apps/expo/app/_layout.tsx` - Wrap with query provider
+- `packages/app/lib/types/api.ts` - API response types
+
+Test Strategy:
+1. Unit Tests: Query hook behavior and caching
+2. Integration Tests: Query invalidation and refetching
+3. Offline Tests: Query persistence and sync
+4. Performance Tests: Query cache efficiency
+5. Cross-Platform Tests: Query behavior across platforms
+
+Quality Gates:
+- Query client properly configured for React Native
+- Offline support working correctly
+- Query devtools accessible in development
+- Query hooks follow consistent patterns
+- Cache persistence works across app restarts
+
+## 3. Create Zustand store structure with slices [pending]
+### Dependencies: None
+### Description: Implement modular Zustand store structure with separate slices for user, calculator, and UI state management
+### Details:
+Implementation Steps:
+1. Create store directory structure: `packages/app/stores/`
+2. Create user slice: `packages/app/stores/slices/user-slice.ts`
+3. Create calculator slice: `packages/app/stores/slices/calculator-slice.ts`
+4. Create UI slice: `packages/app/stores/slices/ui-slice.ts`
+5. Create main store combining slices: `packages/app/stores/store.ts`
+6. Create store hooks for type-safe access: `packages/app/stores/hooks.ts`
+7. Add store persistence for user preferences
+8. Create store reset functionality for logout
+
+Files to create:
+- `packages/app/stores/slices/user-slice.ts` - User profile and auth state
+- `packages/app/stores/slices/calculator-slice.ts` - Calculator history and input
+- `packages/app/stores/slices/ui-slice.ts` - Theme and navigation state
+- `packages/app/stores/store.ts` - Combined store configuration
+- `packages/app/stores/hooks.ts` - Typed store hooks
+- `packages/app/stores/types.ts` - Store type definitions
+
+Store Structure:
+```typescript
+interface AppState {
+  user: {
+    profile: UserProfile | null;
+    isAuthenticated: boolean;
+    preferences: UserPreferences;
+  };
+  calculator: {
+    history: CalculationResult[];
+    currentInput: CalculationInput;
+  };
+  ui: {
+    theme: 'light' | 'dark';
+    navigationState: NavigationState;
+  };
+}
+```
+
+Test Strategy:
+1. Unit Tests: Each slice actions and state updates
+2. Integration Tests: Store composition and interactions
+3. Persistence Tests: Store hydration and dehydration
+4. Performance Tests: Store update performance
+5. TypeScript Tests: Type safety validation
+
+Quality Gates:
+- Store state is fully type-safe
+- Store slices are properly modular
+- Store persistence works for appropriate slices
+- Store hooks provide type-safe access
+- Store reset functionality clears sensitive data
+

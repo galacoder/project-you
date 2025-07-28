@@ -1,0 +1,14 @@
+[install]
+# Use hoisting to reduce duplicated dependencies
+hoist = true
+# Freeze lockfile
+frozen-lockfile = true
+
+[install.scopes]
+# Scope configurations for specific packages
+expo = { hoist = false }
+expo-router = { hoist = false }
+
+[run]
+# Always pass --no-install to "bun run"
+no-install = true

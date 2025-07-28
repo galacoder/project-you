@@ -14,8 +14,8 @@ type Props = {
 
 // const StyledButton = styled(TouchableOpacity)
 
-export const SingleButton = (props: Props) => {
 
+export const SingleButton = (props: Props) => {
 
 
   return (

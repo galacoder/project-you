@@ -5,88 +5,101 @@ import {
   StyleSheet,
   Image,
   View,
-  ImageBackground,
   ImageSourcePropType,
-  TouchableOpacity,
 } from 'react-native'
 import PersonNumberIcon from './person-number-icon'
-import { useNavigation } from '@react-navigation/native'
+import { MotiLink } from 'solito/moti'
 
 type NumPerDetailCardType = {
   title?: string
   icon?: ImageSourcePropType
   subtitle?: string
+  personalYearNumber?: number
+  soulUrgeNumber?: number
+  fengShuiNumber?: number
+  rulingNumber?: number
+  outerExpressNumber?: number
   onPress?: () => void
-  navigateScreenName: string
-  navigateParent: string
+  href?: any
+  as?: string
+  params?: any
 }
 
 const NumPerDetailCard = ({
   title,
   icon,
   subtitle,
+  personalYearNumber,
+  soulUrgeNumber,
+  fengShuiNumber,
+  rulingNumber,
+  outerExpressNumber,
   onPress,
-  navigateScreenName,
-  navigateParent,
+  as,
+  href
 }: NumPerDetailCardType) => {
-  const navigation = useNavigation()
 
   return (
-    <TouchableOpacity
-      style={styles.numPerDetailCardIcon}
-      activeOpacity={0.2}
-      onPress={() =>
-        navigation.navigate(navigateParent, {
-          screen: navigateScreenName,
-        })
-      }
-    >
-      {/* <ImageBackground
+    <MotiLink
+      href={href}
+      as={as}
+      animate={({ hovered, pressed }) => {
+        'worklet'
+        return {
+          scale: pressed ? 0.9 : hovered ? 1.1 : 1,
+        }
+      }}>
+
+      <View style={styles.numPerDetailCardIcon}>
+
+        {/* <ImageBackground
       style={styles.numPerDetailCardIcon}
       imageStyle={{ borderRadius: 8 }}
       resizeMode="cover"
       source={require('../../assets/background02.png')}
     > */}
-      {/* <View style={styles.numPerDetailCardIcon}> */}
-      <View style={styles.headerGroupView}>
-        <View style={styles.layoutView}>
-          <View style={styles.titleNiconView}>
-            <Text style={styles.titleText}>{title}</Text>
-            <Image
-              style={styles.icon}
-              resizeMode="cover"
-              source={icon || require('../../assets/icons/sphere.png')}
-            />
+        {/* <View style={styles.numPerDetailCardIcon}> */}
+        <View style={styles.headerGroupView}>
+          <View style={styles.layoutView}>
+            <View style={styles.titleNiconView}>
+              <Text style={styles.titleText}>{title}</Text>
+              <Image
+                style={styles.icon}
+                resizeMode="cover"
+                source={icon || require('../../assets/icons/sphere.png')}
+              />
+            </View>
           </View>
+          <Text style={styles.subtitleText}>{subtitle}</Text>
         </View>
-        <Text style={styles.subtitleText}>{subtitle}</Text>
-      </View>
-      <SpacerM />
-      <View style={[styles.bottomIconsView, styles.mt8]}>
-        <PersonNumberIcon
-          number="6"
-          numberName="Chủ Đạo"
+        <SpacerM />
+        <View style={[styles.bottomIconsView, styles.mt8]}>
+          <PersonNumberIcon
+            number={rulingNumber || 6}
+            numberName="Chủ Đạo"
           //   iconBg={require('../assets/iconbg1.png')}
-        />
-        <PersonNumberIcon
-          number="6"
-          numberName="Linh Hồn"
+          />
+          <PersonNumberIcon
+            number={soulUrgeNumber || 6}
+            numberName="Linh Hồn"
           //   iconBg={require('../assets/iconbg.png')}
-        />
-        <PersonNumberIcon
-          number="6"
-          numberName="Thể Hiện"
+          />
+          <PersonNumberIcon
+            number={outerExpressNumber || 6}
+            numberName="Thể Hiện"
           //   iconBg={require('../assets/iconbg.png')}
-        />
-        <PersonNumberIcon
-          number="6"
-          numberName="Phong Thủy"
+          />
+          <PersonNumberIcon
+            number={personalYearNumber || 6}
+            numberName="Năm Cá Nhan"
           //   iconBg={require('../assets/iconbg.png')}
-        />
-      </View>
-      {/* </View> */}
-      {/* </ImageBackground> */}
-    </TouchableOpacity>
+          />
+        </View>
+        {/* </View> */}
+        {/* </ImageBackground> */}
+
+      </View >
+    </MotiLink>
   )
 }
 
@@ -154,6 +167,7 @@ const styles = StyleSheet.create({
     alignItems: 'flex-start',
     justifyContent: 'flex-start',
     backgroundColor: 'rgba(235, 235, 245, 0.18)',
+    marginBottom: 8
   },
 })
 

@@ -1,0 +1,159 @@
+# Task ID: 5
+# Title: Web Architecture Consolidation
+# Status: pending
+# Dependencies: None
+# Priority: high
+# Description: Replace Next.js with Expo for unified web/mobile architecture
+# Details:
+Audit Next.js functionality, configure Metro for web, migrate web-specific code to Expo app structure
+
+# Test Strategy:
+
+
+# Subtasks:
+## 1. Complete Expo Router v3 migration from React Navigation [pending]
+### Dependencies: None
+### Description: Finish migrating all remaining React Navigation components to Expo Router v3 file-based routing system
+### Details:
+Implementation Steps:
+1. Audit existing navigation structure for React Navigation remnants
+2. Update `apps/expo/app/_layout.tsx` to use Expo Router patterns
+3. Migrate tab navigation to `apps/expo/app/tabs/_layout.tsx`
+4. Convert screen components to use Expo Router conventions
+5. Update navigation imports throughout the app
+6. Remove React Navigation dependencies
+7. Update deep linking configuration
+8. Test navigation flow on all platforms
+
+Files to modify:
+- `apps/expo/app/_layout.tsx` - Root layout with Expo Router
+- `apps/expo/app/tabs/_layout.tsx` - Tab navigation layout
+- `apps/expo/app/tabs/*.tsx` - Tab screen files
+- `packages/app/features/*/*.tsx` - Feature screen components
+- `packages/app/provider/navigation-provider.tsx` - Remove if React Navigation
+- `apps/expo/package.json` - Remove React Navigation deps
+- `apps/expo/app.json` - Update deep linking config
+
+Navigation Structure:
+```
+apps/expo/app/
+├── _layout.tsx          # Root layout
+├── (tabs)/              # Tab group
+│   ├── _layout.tsx      # Tab navigation
+│   ├── calculator.tsx   # Calculator tab
+│   ├── motivational.tsx # Motivational tab
+│   └── profile.tsx      # Profile tab
+├── auth/                # Auth screens
+│   ├── login.tsx
+│   └── signup.tsx
+└── you/                 # You section screens
+    └── [id].tsx         # Dynamic routes
+```
+
+Test Strategy:
+1. Navigation Tests: All navigation flows work correctly
+2. Deep Link Tests: Deep links route to correct screens
+3. Back Button Tests: Hardware back button behavior
+4. Tab Tests: Tab navigation and state preservation
+5. Cross-Platform Tests: Navigation on iOS, Android, Web
+
+Quality Gates:
+- All React Navigation code removed
+- Expo Router navigation works on all platforms
+- Deep linking functions correctly
+- Tab navigation preserves state
+- Navigation types are properly typed
+
+## 2. Set up web routing configuration for Expo Router [pending]
+### Dependencies: None
+### Description: Configure Expo Router for web platform with proper URL routing, SEO optimization, and web-specific navigation patterns
+### Details:
+Implementation Steps:
+1. Update Metro configuration for web routing support
+2. Configure web-specific routes in `metro.config.js`
+3. Set up URL rewriting for clean web URLs
+4. Configure head tags and metadata for SEO
+5. Set up web-specific navigation components
+6. Configure static file serving for web assets
+7. Test web routing with browser navigation
+8. Optimize web bundle for routing performance
+
+Files to modify:
+- `apps/expo/metro.config.js` - Web routing configuration
+- `apps/expo/app/_layout.tsx` - Add web-specific head configuration
+- `apps/expo/app/+html.tsx` - Custom HTML template
+- `apps/expo/webpack.config.js` - Web build configuration (if needed)
+- `apps/expo/public/` - Static assets for web
+- `apps/expo/app.json` - Web platform configuration
+
+Web Features:
+- Clean URLs (/calculator, /profile, etc.)
+- Browser back/forward button support
+- Bookmarkable URLs
+- SEO-friendly meta tags
+- Social media sharing tags
+- Web-specific navigation patterns
+
+Test Strategy:
+1. URL Tests: Direct URL access works correctly
+2. Browser Navigation Tests: Back/forward buttons
+3. SEO Tests: Meta tags and social sharing
+4. Performance Tests: Web bundle size and loading
+5. Accessibility Tests: Web-specific a11y features
+
+Quality Gates:
+- Web URLs are clean and semantic
+- Browser navigation works correctly
+- Meta tags are properly configured
+- Web performance meets targets
+- Web accessibility standards met
+
+## 3. Implement deep linking across all platforms [pending]
+### Dependencies: None
+### Description: Set up comprehensive deep linking system for iOS, Android, and Web with proper URL scheme handling and universal links
+### Details:
+Implementation Steps:
+1. Configure custom URL scheme in `app.json`
+2. Set up universal links for iOS in `app.json`
+3. Configure Android app links and intent filters
+4. Create deep link handler utility functions
+5. Test deep links from external apps and browsers
+6. Set up deep link analytics and tracking
+7. Create deep link testing suite
+8. Document deep link URL patterns
+
+Files to modify:
+- `apps/expo/app.json` - Deep link configuration
+- `packages/app/lib/deep-links.ts` - Deep link utilities
+- `packages/app/hooks/use-deep-links.ts` - Deep link hook
+- `apps/expo/app/_layout.tsx` - Deep link handling
+- Documentation for deep link patterns
+
+Deep Link Patterns:
+```
+app://calculator                  # Calculator screen
+app://profile                     # Profile screen
+app://you/categories/[id]         # Category detail
+app://auth/login                  # Login screen
+https://yourapp.com/calculator    # Universal links
+```
+
+URL Scheme Configuration:
+- Custom scheme: `projectyou://`
+- Universal links: `https://yourapp.com/*`
+- Android app links: `https://yourapp.com/*`
+
+Test Strategy:
+1. URL Scheme Tests: Custom scheme links work
+2. Universal Link Tests: HTTPS links open app
+3. Android App Link Tests: Android-specific linking
+4. Cross-Platform Tests: Links work on all platforms
+5. Analytics Tests: Deep link tracking works
+
+Quality Gates:
+- Deep links work from all external sources
+- URL patterns are consistent and intuitive
+- Deep link handling is robust with error handling
+- Deep link analytics provide useful data
+- Documentation covers all link patterns
+

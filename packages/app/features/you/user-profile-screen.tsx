@@ -1,63 +1,77 @@
-import * as React from 'react'
-import {
-  Image,
-  StyleSheet,
-  Pressable,
-  Text,
-  View,
-  ImageBackground,
-  SafeAreaView,
-} from 'react-native'
+import { StyleSheet, View } from 'react-native'
 import NumPerDetailCard from '../../components/cards/num-per-detail-card'
 import CardMini from '../../components/cards/card-mini'
 import { Layout } from 'app/design/layout'
 import { SpacerM, SpacerS, SpacerXXL } from 'app/design/spacing'
 import { Smartie } from 'app/components/smartie'
 
+const DATA = {
+  name: 'Sang Le',
+  dob: '06/09/1989',
+  personalYearNumber: 1,
+  soulUrgeNumber: 2,
+  fengShuiNumber: 1,
+  rulingNumber: 1,
+  outerExpressNumber: 1,
+}
+
 const UserProfile = () => {
+  let href = '/you/num-person-detail'
   return (
     <Layout>
-      <SpacerXXL />
-      <SpacerXXL />
+      <View className="px-4">
+        <SpacerXXL />
+        <SpacerXXL />
 
-      <Smartie />
+        <Smartie />
 
-      <View style={styles.homeInfoCardsView}>
-        <View style={styles.layoutView3}>
-          <NumPerDetailCard
-            title="Wong Kwong Man Carmen"
-            // icon={{ uri: 'icon8@3x.png' }}
-            subtitle="13/09/1989"
-            navigateParent="You"
-            navigateScreenName="NumPersonDetailScreen"
-          />
+        <View style={styles.homeInfoCardsView}>
+          <View style={styles.layoutView3}>
 
-          <SpacerS />
+            <NumPerDetailCard
+              title={DATA.name}
+              subtitle={DATA.dob}
+              personalYearNumber={DATA.personalYearNumber}
+              soulUrgeNumber={DATA.soulUrgeNumber}
+              fengShuiNumber={DATA.fengShuiNumber}
+              rulingNumber={DATA.rulingNumber}
+              outerExpressNumber={DATA.outerExpressNumber}
+              href={href}
+            />
 
-          <View className="flex-row flex-wrap items-center justify-between flex-1 w-full gap-y-1">
-            <View className="flex-row justify-between w-full">
-              <CardMini
-                title="Động Lực Hằng Ngày "
-                icon={require('../../assets/icons/sphere.png')}
-              // cardMini={require('../../assets/background02.png')}
-              />
-              <CardMini
-                title="Động Lực Hằng Ngày "
-                icon={require('../../assets/icons/sphere.png')}
-              // cardMini={require('../../assets/background02.png')}
-              />
-            </View>
-            <View className="flex-row justify-between w-full">
-              <CardMini
-                title="Động Lực Hằng Ngày "
-                icon={require('../../assets/icons/sphere.png')}
-              // cardMini={require('../../assets/background02.png')}
-              />
-              <CardMini
-                title="Động Lực Hằng Ngày "
-                icon={require('../../assets/icons/sphere.png')}
-              // cardMini={require('../../assets/background02.png')}
-              />
+            <SpacerS />
+
+            <View className="w-full flex-1 flex-row flex-wrap items-center justify-between gap-y-1">
+              <View className="w-full flex-row justify-between">
+                <CardMini
+                  title="Động Lực Hằng Ngày "
+                  icon={require('../../assets/icons/sphere.png')}
+                  href="/you/num-user-list"
+                // cardMini={require('../../assets/background02.png')}
+                />
+                <CardMini
+                  title="Động Lực Hằng Ngày "
+                  icon={require('../../assets/icons/sphere.png')}
+                  // cardMini={require('../../assets/background02.png')}
+
+                  href="/you/num-user-list"
+                />
+              </View>
+              <View className="w-full flex-row justify-between">
+                <CardMini
+                  title="Động Lực Hằng Ngày "
+                  icon={require('../../assets/icons/sphere.png')}
+                  // cardMini={require('../../assets/background02.png')}
+
+                  href="/you/num-user-list"
+                />
+                <CardMini
+                  title="Động Lực Hằng Ngày "
+                  icon={require('../../assets/icons/sphere.png')}
+                  // cardMini={require('../../assets/background02.png')}
+                  href="/you/num-user-list"
+                />
+              </View>
             </View>
           </View>
         </View>

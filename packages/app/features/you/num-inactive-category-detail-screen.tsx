@@ -27,7 +27,7 @@ function NumInactiveCategoryDetail() {
       <PurchaseButton
         title="Mở Khóa Nội Dung"
         subtitle="Bạn cần 1 vương miện"
-        href='/payment/payment'
+        href="/payment/payment"
         iconSrc={require('../../assets/icons/crown.png')}
       />
     </Layout>

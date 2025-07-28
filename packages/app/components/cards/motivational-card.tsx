@@ -6,17 +6,20 @@ import {
   View,
   TouchableOpacity,
   ImageSourcePropType,
-} from "react-native";
+} from 'react-native'
 
-import { AntDesign } from '@expo/vector-icons';
+import { AntDesign } from '@expo/vector-icons'
+import { MotiLink } from 'solito/moti'
 
 type MotivationalCardType = {
-  title?: string;
-  descriptionText?: string;
-  authorText?: string;
-  learnMoreText?: string;
+  title?: string
+  descriptionText?: string
+  authorText?: string
+  learnMoreText?: string
   iconSrc?: ImageSourcePropType
-};
+  href?: any
+  as?: string
+}
 
 const MotivationalCard = ({
   title,
@@ -24,47 +27,54 @@ const MotivationalCard = ({
   authorText,
   learnMoreText,
   iconSrc,
+  href,
+  as,
 }: MotivationalCardType) => {
-
   return (
-    <TouchableOpacity
-      style={styles.motivationalCardTouchableOpacity}
-      activeOpacity={0.2}
-      onPress={() => { }}
+    <MotiLink
+      href={href}
+      as={as}
+      animate={({ hovered, pressed }) => {
+        'worklet'
+        return {
+          scale: pressed ? 0.9 : hovered ? 1.1 : 1,
+        }
+      }}
     >
-      <View style={styles.layoutView}>
-        <View style={styles.titleIconGroupView}>
-          <Text style={styles.titleText}>{title}</Text>
-          <View style={styles.iconView}>
-            <Image
-              style={styles.icon}
-              resizeMode="cover"
-              source={iconSrc || require("../../assets/icons/sphere.png")}
-            />
+      <View style={styles.motivationalCardTouchableOpacity}>
+        <View style={styles.layoutView}>
+          <View style={styles.titleIconGroupView}>
+            <Text style={styles.titleText}>{title}</Text>
+            <View style={styles.iconView}>
+              <Image
+                style={styles.icon}
+                resizeMode="cover"
+                source={iconSrc || require('../../assets/icons/sphere.png')}
+              />
+            </View>
           </View>
-        </View>
-        <Text style={[styles.descriptionText, styles.mt11]}>
-          {descriptionText || "Description Text"}
-        </Text>
-        <View style={[styles.bottomLayoutView, styles.mt11]}>
-          <Text style={styles.authorText}>{authorText}</Text>
-          {learnMoreText &&
-            (
+          <Text style={[styles.descriptionText, styles.mt11]}>
+            {descriptionText || 'Description Text'}
+          </Text>
+          <View style={[styles.bottomLayoutView, styles.mt11]}>
+            <Text style={styles.authorText}>{authorText}</Text>
+            {learnMoreText && (
               <>
                 <View style={[styles.dividerView, styles.ml11]} />
                 <View style={[styles.learnMoreButtonView, styles.ml11]}>
-                  <Text style={styles.learnMoreText}>{learnMoreText || "Learn more text"}</Text>
+                  <Text style={styles.learnMoreText}>
+                    {learnMoreText || 'Learn more text'}
+                  </Text>
                   <AntDesign name="arrowright" size={16} color="#00cffd" />
                 </View>
-
               </>
-            )
-          }
+            )}
+          </View>
         </View>
       </View>
-    </TouchableOpacity>
-  );
-};
+    </MotiLink>
+  )
+}
 
 const styles = StyleSheet.create({
   ml8: {
@@ -77,29 +87,29 @@ const styles = StyleSheet.create({
     marginTop: 11,
   },
   titleText: {
-    position: "relative",
+    position: 'relative',
     fontSize: 17,
     lineHeight: 22,
-    fontWeight: "700",
-    fontFamily: "SF Pro Text",
-    color: "#fff",
-    textAlign: "left",
+    fontWeight: '700',
+    fontFamily: 'SF Pro Text',
+    color: '#fff',
+    textAlign: 'left',
   },
   icon: {
-    position: "absolute",
-    height: "100%",
-    width: "100%",
-    top: "0%",
-    right: "0%",
-    bottom: "0%",
-    left: "0%",
-    maxWidth: "100%",
-    overflow: "hidden",
-    maxHeight: "100%",
+    position: 'absolute',
+    height: '100%',
+    width: '100%',
+    top: '0%',
+    right: '0%',
+    bottom: '0%',
+    left: '0%',
+    maxWidth: '100%',
+    overflow: 'hidden',
+    maxHeight: '100%',
   },
   iconView: {
-    position: "relative",
-    shadowColor: "rgba(0, 0, 0, 0.25)",
+    position: 'relative',
+    shadowColor: 'rgba(0, 0, 0, 0.25)',
     shadowOffset: {
       width: 0,
       height: 4,
@@ -112,78 +122,82 @@ const styles = StyleSheet.create({
     flexShrink: 0,
   },
   titleIconGroupView: {
-    alignSelf: "stretch",
-    overflow: "hidden",
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
+    alignSelf: 'stretch',
+    overflow: 'hidden',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
   },
   descriptionText: {
-    alignSelf: "stretch",
-    position: "relative",
+    alignSelf: 'stretch',
+    position: 'relative',
     fontSize: 13,
     lineHeight: 17,
-    fontFamily: "SF Pro Text",
-    color: "#fff",
-    textAlign: "left",
+    fontFamily: 'SF Pro Text',
+    color: '#fff',
+    textAlign: 'left',
   },
   authorText: {
-    position: "relative",
+    position: 'relative',
     fontSize: 13,
     lineHeight: 17,
-    fontFamily: "SF Pro Text",
-    color: "rgba(255, 255, 255, 0.6)",
-    textAlign: "left",
+    fontFamily: 'SF Pro Text',
+    color: 'rgba(255, 255, 255, 0.6)',
+    textAlign: 'left',
   },
   dividerView: {
-    position: "relative",
+    position: 'relative',
     borderRadius: 3,
-    backgroundColor: "rgba(217, 217, 217, 0.5)",
+    backgroundColor: 'rgba(217, 217, 217, 0.5)',
     width: 2,
     height: 8,
     flexShrink: 0,
   },
   learnMoreText: {
-    position: "relative",
+    position: 'relative',
     fontSize: 12,
     lineHeight: 19,
-    fontWeight: "600",
-    fontFamily: "SF Pro Text",
-    color: "#00cffd",
-    textAlign: "left",
+    fontWeight: '600',
+    fontFamily: 'SF Pro Text',
+    color: '#00cffd',
+    textAlign: 'left',
   },
   learnMoreIcon: {
-    position: "relative",
+    position: 'relative',
     width: 10,
     height: 9,
     flexShrink: 0,
   },
   learnMoreButtonView: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "flex-start",
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'flex-start',
   },
   bottomLayoutView: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "center",
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   layoutView: {
-    alignSelf: "stretch",
-    flexDirection: "column",
-    alignItems: "flex-start",
-    justifyContent: "flex-start",
+    alignSelf: 'stretch',
+    flexDirection: 'column',
+    alignItems: 'flex-start',
+    justifyContent: 'flex-start',
+    marginBottom: 16,
+    width: '100%',
   },
   motivationalCardTouchableOpacity: {
-    alignSelf: "stretch",
+    width: '100%',
+    alignSelf: 'stretch',
     borderRadius: 10,
-    backgroundColor: "rgba(235, 235, 245, 0.18)",
-    flexDirection: "column",
+    backgroundColor: 'rgba(235, 235, 245, 0.18)',
+    flexDirection: 'column',
     padding: 16,
-    boxSizing: "border-box",
-    alignItems: "center",
-    justifyContent: "center",
+    boxSizing: 'border-box',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom: 8,
   },
-});
+})
 
 export default MotivationalCard

@@ -11,7 +11,7 @@ export const CalculatorInputDOBScreen = () => {
   const [date, setDate] = useState()
 
   return (
-    <Layout className="items-center justify-center">
+    <Layout>
       <Smartie content="Hello" />
       <H3 className="text-[#fff]">Họ tên đầy đủ của tôi là </H3>
       <H3 className="text-[#fff]">

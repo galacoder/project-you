@@ -1,34 +1,31 @@
-import * as React from 'react'
 import {
-  Pressable,
   Image,
   StyleSheet,
   View,
   Text,
-  TouchableOpacity,
   ImageSourcePropType,
 } from 'react-native'
-import { useNavigation } from '@react-navigation/native'
 import { LinearGradient } from 'expo-linear-gradient'
+
+import { MotiLink } from 'solito/moti'
 
 type NumCategoryDetailCardType = {
   number?: string
   numberName?: string
   iconSrc?: ImageSourcePropType
-  navigateScreenName?: string
-  navigateParent?: string
   backgroundColor?: string
+  href?: any
+  as?: string
 }
 
 const NumCategoryDetailCard = ({
   number,
   numberName,
   iconSrc,
-  navigateScreenName,
-  navigateParent,
   backgroundColor,
+  href,
+  as
 }: NumCategoryDetailCardType) => {
-  const navigation = useNavigation()
 
   const colorHandler =
     backgroundColor === 'transparent'
@@ -36,34 +33,38 @@ const NumCategoryDetailCard = ({
       : ['#14F1D9', '#3672F8']
 
   return (
-    <TouchableOpacity
-      style={styles.numCategoryDetailCardTouchableOpacity}
-      activeOpacity={0.2}
-      onPress={() =>
-        navigation.navigate(navigateParent, {
-          screen: navigateScreenName,
-        })
-      }
-    >
-      <LinearGradient
-        colors={colorHandler}
-        style={styles.backgroundLinearGradient}
-      >
-        <View style={styles.layoutView}>
-          <View style={styles.iconGroupView}>
-            <Image
-              style={styles.icon}
-              resizeMode="cover"
-              source={iconSrc || require('../../assets/icons/sphere.png')}
-            />
+    <MotiLink
+      href={href}
+      as={as}
+      animate={({ hovered, pressed }) => {
+        'worklet'
+        return {
+          scale: pressed ? 0.9 : hovered ? 1.1 : 1,
+        }
+      }}>
+
+      <View style={styles.numCategoryDetailCardTouchableOpacity}>
+        <LinearGradient
+          colors={colorHandler}
+          style={styles.backgroundLinearGradient}
+        >
+          <View style={styles.layoutView}>
+            <View style={styles.iconGroupView}>
+              <Image
+                style={styles.icon}
+                resizeMode="cover"
+                source={iconSrc || require('../../assets/icons/sphere.png')}
+              />
+            </View>
+            <View style={styles.numberGroupView}>
+              <Text style={styles.numberNameText}>{numberName}</Text>
+              <Text style={styles.numberText}>{number}</Text>
+            </View>
           </View>
-          <View style={styles.numberGroupView}>
-            <Text style={styles.numberNameText}>{numberName}</Text>
-            <Text style={styles.numberText}>{number}</Text>
-          </View>
-        </View>
-      </LinearGradient>
-    </TouchableOpacity>
+        </LinearGradient>
+
+      </View >
+    </MotiLink>
   )
 }
 
@@ -106,19 +107,21 @@ const styles = StyleSheet.create({
     width: 99,
   },
   numberGroupView: {
+    width: '90%',
     flexDirection: 'column',
     alignItems: 'flex-end',
     justifyContent: 'center',
   },
   layoutView: {
+    width: '100%',
     alignSelf: 'stretch',
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
   },
   numCategoryDetailCardTouchableOpacity: {
+    width: '100%',
     alignSelf: 'stretch',
-
     borderStyle: 'solid',
     borderColor: 'rgba(255, 255, 255, 0.3)',
     backgroundColor: 'rgba(255, 255, 255,0.3)',

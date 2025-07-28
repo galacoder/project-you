@@ -12,7 +12,6 @@ export const CalculatorInputNameScreen = () => {
       <SpacerXXL />
       <SpacerXXL />
 
-
       <Smartie />
       <H3 className="text-white">Họ tên đầy đủ của bạn là</H3>
       <InputField

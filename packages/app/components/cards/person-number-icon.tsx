@@ -8,7 +8,7 @@ import {
 } from 'react-native'
 
 type PersonNumberIconType = {
-  number?: string
+  number?: number
   numberName?: string
   iconBg?: ImageSourcePropType
 }

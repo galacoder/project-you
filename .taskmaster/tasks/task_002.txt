@@ -1,0 +1,125 @@
+# Task ID: 2
+# Title: Core Dependencies Upgrade
+# Status: pending
+# Dependencies: None
+# Priority: high
+# Description: Upgrade Expo SDK and React ecosystem to latest stable versions
+# Details:
+Update Expo SDK to 51+, React Native, React, and expo-router to latest versions with compatibility testing
+
+# Test Strategy:
+
+
+# Subtasks:
+## 1. Upgrade Expo SDK to latest (51+) [pending]
+### Dependencies: None
+### Description: Update Expo SDK and handle breaking changes with compatibility testing
+### Details:
+## PR-Ready Implementation
+
+### Files to Modify
+- All `package.json` files
+- `app.json` / `app.config.js`
+- Expo configuration files
+
+### Implementation Steps
+1. Run `npx expo install --fix` to update Expo SDK
+2. Update app.json configuration for new SDK version
+3. Update Expo CLI and development tools
+4. Fix breaking changes from SDK upgrade
+5. Test platform-specific functionality
+
+### Test Strategy
+- ✅ Build succeeds on iOS, Android, Web
+- ✅ Run expo doctor for compatibility checks
+- ✅ Test development server starts correctly
+- ✅ Verify no deprecated API usage warnings
+- ✅ Test platform-specific features
+
+### Quality Gates
+- [ ] Expo SDK 51+ successfully installed
+- [ ] No build errors or warnings
+- [ ] All platforms build and run correctly
+- [ ] Breaking changes documented and fixed
+
+### Acceptance Criteria
+- Latest Expo SDK version installed
+- All platforms compatible and working
+- No deprecated API usage
+- Development workflow uninterrupted
+
+## 2. Update React Native ecosystem packages [pending]
+### Dependencies: None
+### Description: Update React, React Native, and core libraries to latest compatible versions
+### Details:
+## PR-Ready Implementation
+
+### Files to Modify
+- All `package.json` files
+- React/React Native components
+- Platform-specific configurations
+
+### Implementation Steps
+1. Update React to latest stable version
+2. Update React Native to Expo-compatible version
+3. Update React Native core libraries (async-storage, etc.)
+4. Fix breaking changes in component APIs
+5. Update TypeScript types if needed
+
+### Test Strategy
+- ✅ Component rendering tests pass
+- ✅ State management still functions
+- ✅ Navigation works across platforms
+- ✅ No React warnings in console
+- ✅ TypeScript compilation succeeds
+
+### Quality Gates
+- [ ] React and React Native versions compatible
+- [ ] No breaking changes in components
+- [ ] TypeScript types up to date
+- [ ] Performance maintained or improved
+
+### Acceptance Criteria
+- Latest compatible React/RN versions
+- All components function correctly
+- No deprecation warnings
+- TypeScript support maintained
+
+## 3. Upgrade expo-router to latest version [pending]
+### Dependencies: None
+### Description: Update expo-router with new features and enhanced type safety
+### Details:
+## PR-Ready Implementation
+
+### Files to Modify
+- Navigation configuration files
+- Route files and components
+- TypeScript route definitions
+- Deep linking configuration
+
+### Implementation Steps
+1. Update expo-router to latest version
+2. Migrate to new routing patterns if needed
+3. Update route type definitions
+4. Test deep linking functionality
+5. Update navigation patterns
+
+### Test Strategy
+- ✅ All routes navigate correctly
+- ✅ Deep links work on all platforms
+- ✅ TypeScript route types accurate
+- ✅ Navigation state preserved
+- ✅ File-based routing functions
+
+### Quality Gates
+- [ ] Latest expo-router version installed
+- [ ] Route types are type-safe
+- [ ] Deep linking works reliably
+- [ ] Navigation performance maintained
+
+### Acceptance Criteria
+- expo-router updated to latest
+- Enhanced type safety implemented
+- All navigation flows working
+- Deep linking validated
+

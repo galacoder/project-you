@@ -8,7 +8,6 @@ export default function AppLayout({ route, navigation }) {
   return (
     <>
       {/* Header config */}
-      {console.log('route', route)}
       <Stack.Screen
         options={{
           headerShown: false,
@@ -86,4 +85,3 @@ export default function AppLayout({ route, navigation }) {
 }
 
 
-// export default Tabs;

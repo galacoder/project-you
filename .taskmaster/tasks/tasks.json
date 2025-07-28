@@ -1,0 +1,338 @@
+{
+  "master": {
+    "tasks": [
+      {
+        "id": 1,
+        "title": "Package Manager Migration (Yarn → Bun)",
+        "description": "Migrate from Yarn to Bun for improved performance and TypeScript support",
+        "details": "Epic to migrate the entire monorepo from Yarn to Bun package manager. This includes updating all package.json files, removing yarn.lock, generating bun.lockb, and optimizing bunfig.toml for monorepo structure.",
+        "testStrategy": "Test installation performance, verify all scripts work with bun, ensure workspace dependencies resolve correctly",
+        "status": "in-progress",
+        "dependencies": [],
+        "priority": "high",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Update root package.json scripts",
+            "description": "Replace all yarn commands with bun equivalents in root package.json",
+            "details": "## PR-Ready Implementation\n\n### Files to Modify\n- `/package.json`\n\n### Implementation Steps\n1. Replace `yarn` → `bun` in all scripts\n2. Update `yarn add` → `bun add` patterns\n3. Update `yarn run` → `bun run` patterns\n4. Verify workspace configuration compatibility\n\n### Test Strategy\n- ✅ Run `bun install` successfully\n- ✅ Execute all package.json scripts with bun\n- ✅ Verify workspace dependencies resolve\n- ✅ Compare installation speed vs yarn\n\n### Quality Gates\n- [ ] All scripts execute without errors\n- [ ] No yarn references remain\n- [ ] Workspace structure maintained\n- [ ] Performance improvement documented\n\n### Acceptance Criteria\n- All package.json scripts use bun commands\n- Installation completes successfully  \n- No breaking changes to workflow\n- Documentation updated",
+            "status": "done",
+            "dependencies": [],
+            "parentTaskId": 1
+          },
+          {
+            "id": 2,
+            "title": "Update workspace package.json files",
+            "description": "Update scripts in all workspace packages for bun compatibility",
+            "details": "## PR-Ready Implementation\n\n### Files to Modify\n- `/apps/expo/package.json`\n- `/apps/next/package.json` \n- `/packages/app/package.json`\n\n### Implementation Steps\n1. Update scripts in expo app package.json\n2. Update scripts in next app package.json\n3. Update scripts in shared app package.json\n4. Ensure cross-workspace script compatibility\n\n### Test Strategy\n- ✅ Run bun commands from each workspace\n- ✅ Test workspace dependency resolution\n- ✅ Verify cross-package script execution\n- ✅ Test build scripts for all platforms\n\n### Quality Gates\n- [ ] All workspace scripts execute properly\n- [ ] Cross-workspace dependencies work\n- [ ] No script execution failures\n- [ ] Consistent script patterns across workspaces\n\n### Acceptance Criteria\n- All workspace packages use bun commands\n- Inter-workspace scripts function correctly\n- Build processes work for all platforms",
+            "status": "done",
+            "dependencies": [],
+            "parentTaskId": 1
+          },
+          {
+            "id": 3,
+            "title": "Migrate lockfiles and dependencies",
+            "description": "Remove yarn.lock and generate bun.lockb with dependency verification",
+            "details": "## PR-Ready Implementation\n\n### Files to Modify\n- Delete: `yarn.lock`\n- Create: `bun.lockb`\n- Verify: All package.json dependencies\n\n### Implementation Steps\n1. Backup current yarn.lock for comparison\n2. Remove yarn.lock from repository\n3. Run `bun install` to generate bun.lockb\n4. Verify all dependencies resolved correctly\n5. Compare dependency versions with previous yarn.lock\n\n### Test Strategy\n- ✅ Clean install on fresh environment\n- ✅ Verify no missing dependencies\n- ✅ Test production and development dependencies\n- ✅ Benchmark installation speed vs yarn\n- ✅ Validate lockfile integrity\n\n### Quality Gates\n- [ ] All dependencies installed correctly\n- [ ] No version conflicts or missing packages\n- [ ] Installation faster than yarn baseline\n- [ ] Lockfile committed and tracks properly\n\n### Acceptance Criteria\n- yarn.lock removed, bun.lockb generated\n- All dependencies function correctly\n- Faster installation times achieved\n- No dependency resolution errors",
+            "status": "in-progress",
+            "dependencies": [],
+            "parentTaskId": 1
+          },
+          {
+            "id": 4,
+            "title": "Optimize bunfig.toml configuration",
+            "description": "Configure bun for optimal monorepo performance and TypeScript support",
+            "details": "## PR-Ready Implementation\n\n### Files to Modify\n- `/bunfig.toml`\n- Update CI/CD configurations if needed\n\n### Implementation Steps\n1. Review current bunfig.toml configuration\n2. Add monorepo-specific optimizations\n3. Configure TypeScript compilation settings\n4. Set up workspace-aware dependency resolution\n5. Optimize build and install performance settings\n\n### Test Strategy\n- ✅ Benchmark build times before/after config\n- ✅ Test TypeScript compilation speed\n- ✅ Verify workspace dependency hoisting\n- ✅ Test install performance across environments\n- ✅ Validate configuration syntax\n\n### Quality Gates\n- [ ] Build times improved or maintained\n- [ ] TypeScript compilation works correctly\n- [ ] Workspace dependencies resolve optimally\n- [ ] Configuration validates without errors\n\n### Acceptance Criteria\n- bunfig.toml optimized for monorepo\n- TypeScript support configured\n- Performance improvements documented\n- No configuration conflicts",
+            "status": "pending",
+            "dependencies": [],
+            "parentTaskId": 1
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "title": "Core Dependencies Upgrade",
+        "description": "Upgrade Expo SDK and React ecosystem to latest stable versions",
+        "details": "Update Expo SDK to 51+, React Native, React, and expo-router to latest versions with compatibility testing",
+        "testStrategy": "",
+        "status": "pending",
+        "dependencies": [
+          "1"
+        ],
+        "priority": "high",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Upgrade Expo SDK to latest (51+)",
+            "description": "Update Expo SDK and handle breaking changes with compatibility testing",
+            "details": "## PR-Ready Implementation\n\n### Files to Modify\n- All `package.json` files\n- `app.json` / `app.config.js`\n- Expo configuration files\n\n### Implementation Steps\n1. Run `npx expo install --fix` to update Expo SDK\n2. Update app.json configuration for new SDK version\n3. Update Expo CLI and development tools\n4. Fix breaking changes from SDK upgrade\n5. Test platform-specific functionality\n\n### Test Strategy\n- ✅ Build succeeds on iOS, Android, Web\n- ✅ Run expo doctor for compatibility checks\n- ✅ Test development server starts correctly\n- ✅ Verify no deprecated API usage warnings\n- ✅ Test platform-specific features\n\n### Quality Gates\n- [ ] Expo SDK 51+ successfully installed\n- [ ] No build errors or warnings\n- [ ] All platforms build and run correctly\n- [ ] Breaking changes documented and fixed\n\n### Acceptance Criteria\n- Latest Expo SDK version installed\n- All platforms compatible and working\n- No deprecated API usage\n- Development workflow uninterrupted",
+            "status": "pending",
+            "dependencies": [],
+            "parentTaskId": 2
+          },
+          {
+            "id": 2,
+            "title": "Update React Native ecosystem packages",
+            "description": "Update React, React Native, and core libraries to latest compatible versions",
+            "details": "## PR-Ready Implementation\n\n### Files to Modify\n- All `package.json` files\n- React/React Native components\n- Platform-specific configurations\n\n### Implementation Steps\n1. Update React to latest stable version\n2. Update React Native to Expo-compatible version\n3. Update React Native core libraries (async-storage, etc.)\n4. Fix breaking changes in component APIs\n5. Update TypeScript types if needed\n\n### Test Strategy\n- ✅ Component rendering tests pass\n- ✅ State management still functions\n- ✅ Navigation works across platforms\n- ✅ No React warnings in console\n- ✅ TypeScript compilation succeeds\n\n### Quality Gates\n- [ ] React and React Native versions compatible\n- [ ] No breaking changes in components\n- [ ] TypeScript types up to date\n- [ ] Performance maintained or improved\n\n### Acceptance Criteria\n- Latest compatible React/RN versions\n- All components function correctly\n- No deprecation warnings\n- TypeScript support maintained",
+            "status": "pending",
+            "dependencies": [],
+            "parentTaskId": 2
+          },
+          {
+            "id": 3,
+            "title": "Upgrade expo-router to latest version",
+            "description": "Update expo-router with new features and enhanced type safety",
+            "details": "## PR-Ready Implementation\n\n### Files to Modify\n- Navigation configuration files\n- Route files and components\n- TypeScript route definitions\n- Deep linking configuration\n\n### Implementation Steps\n1. Update expo-router to latest version\n2. Migrate to new routing patterns if needed\n3. Update route type definitions\n4. Test deep linking functionality\n5. Update navigation patterns\n\n### Test Strategy\n- ✅ All routes navigate correctly\n- ✅ Deep links work on all platforms\n- ✅ TypeScript route types accurate\n- ✅ Navigation state preserved\n- ✅ File-based routing functions\n\n### Quality Gates\n- [ ] Latest expo-router version installed\n- [ ] Route types are type-safe\n- [ ] Deep linking works reliably\n- [ ] Navigation performance maintained\n\n### Acceptance Criteria\n- expo-router updated to latest\n- Enhanced type safety implemented\n- All navigation flows working\n- Deep linking validated",
+            "status": "pending",
+            "dependencies": [],
+            "parentTaskId": 2
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "title": "UI Framework Migration Setup",
+        "description": "Install Gluestack UI v2 and prepare for NativeWind removal",
+        "details": "Install Gluestack UI v2, configure theme system, and audit NativeWind usage for migration planning",
+        "testStrategy": "",
+        "status": "pending",
+        "dependencies": [
+          "2"
+        ],
+        "priority": "high",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Install Gluestack UI v2 core packages",
+            "description": "Add Gluestack UI v2 dependencies with peer dependency resolution",
+            "details": "## PR-Ready Implementation\n\n### Files to Modify\n- All `package.json` files\n- Dependencies configuration\n\n### Implementation Steps\n1. Install @gluestack-ui/themed core package\n2. Install required peer dependencies\n3. Verify version compatibility across workspace\n4. Test basic component import and rendering\n5. Document new dependency additions\n\n### Test Strategy\n- ✅ All packages install without conflicts\n- ✅ Basic Gluestack component renders\n- ✅ No peer dependency warnings\n- ✅ TypeScript types available\n- ✅ Bundle size impact acceptable\n\n### Quality Gates\n- [ ] Gluestack UI v2 installed successfully\n- [ ] No dependency conflicts\n- [ ] TypeScript support working\n- [ ] Basic components importable\n\n### Acceptance Criteria\n- Gluestack UI v2 core packages installed\n- All peer dependencies resolved\n- Basic component functionality verified\n- No breaking dependency changes",
+            "status": "pending",
+            "dependencies": [],
+            "parentTaskId": 3
+          },
+          {
+            "id": 2,
+            "title": "Configure Gluestack theme system",
+            "description": "Set up theme configuration and providers for consistent design system",
+            "details": "## PR-Ready Implementation\n\n### Files to Modify\n- Theme configuration files\n- Root app providers\n- `packages/app/design/theme.ts`\n- App entry points\n\n### Implementation Steps\n1. Create theme configuration file\n2. Set up GluestackUIProvider at app root\n3. Configure custom theme tokens if needed\n4. Test theme provider integration\n5. Validate theme switching functionality\n\n### Test Strategy\n- ✅ Theme provider renders without errors\n- ✅ Components receive theme context\n- ✅ Theme tokens accessible throughout app\n- ✅ Theme switching works (if implemented)\n- ✅ No provider conflicts with existing setup\n\n### Quality Gates\n- [ ] Theme system properly configured\n- [ ] All components have access to theme\n- [ ] No provider hierarchy conflicts\n- [ ] Theme tokens properly typed\n\n### Acceptance Criteria\n- Gluestack theme system operational\n- Components can access theme tokens\n- Provider properly integrated at app root\n- Theme customization possible",
+            "status": "pending",
+            "dependencies": [],
+            "parentTaskId": 3
+          },
+          {
+            "id": 3,
+            "title": "Audit NativeWind usage for migration planning",
+            "description": "Complete inventory of NativeWind usage and create migration strategy",
+            "details": "## PR-Ready Implementation\n\n### Files to Modify\n- Create migration mapping document\n- Component usage audit\n- NativeWind configuration analysis\n\n### Implementation Steps\n1. Scan all files for className usage patterns\n2. Categorize NativeWind usage by complexity\n3. Map NativeWind classes to Gluestack equivalents\n4. Identify components requiring custom styling\n5. Create migration priority order\n\n### Test Strategy\n- ✅ Complete usage inventory generated\n- ✅ All className patterns documented\n- ✅ Migration complexity assessed\n- ✅ Gluestack mapping validated\n- ✅ No usage patterns missed\n\n### Quality Gates\n- [ ] Complete NativeWind usage catalog\n- [ ] Migration strategy documented\n- [ ] Complexity estimates provided\n- [ ] Component priority order established\n\n### Acceptance Criteria\n- All NativeWind usage identified\n- Migration plan with complexity estimates\n- Component-to-Gluestack mapping complete\n- Removal strategy documented",
+            "status": "pending",
+            "dependencies": [],
+            "parentTaskId": 3
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "title": "State Management & Data Fetching Setup",
+        "description": "Install and configure Zustand and React Query for modern state management",
+        "details": "Install Zustand with persistence, React Query for server state, and configure integration",
+        "testStrategy": "",
+        "status": "pending",
+        "dependencies": [
+          "2"
+        ],
+        "priority": "high",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Install Zustand for client state management",
+            "description": "Add Zustand state management library to the project with proper configuration for React Native and web compatibility",
+            "details": "Implementation Steps:\n1. Install Zustand: `bun add zustand`\n2. Install React Native async storage for persistence: `bun add @react-native-async-storage/async-storage`\n3. Install Zustand persist middleware: `bun add zustand/middleware`\n4. Create base store configuration in `packages/app/stores/index.ts`\n5. Set up TypeScript types for store state\n6. Configure store persistence for user preferences\n7. Create store provider wrapper component\n8. Update app entry points to use store provider\n\nFiles to modify:\n- `packages/app/package.json` - Add dependencies\n- `packages/app/stores/index.ts` - Create base store config\n- `packages/app/stores/types.ts` - TypeScript interfaces\n- `packages/app/provider/store-provider.tsx` - Store provider component\n- `apps/expo/app/_layout.tsx` - Wrap with store provider\n- `packages/app/features/*/index.tsx` - Import store hooks where needed\n\nTest Strategy:\n1. Unit Tests: Store actions and state updates\n2. Integration Tests: Store persistence across app restarts\n3. Cross-Platform Tests: Store functionality on iOS, Android, Web\n4. Performance Tests: Store update performance with large state\n5. Memory Tests: Store cleanup and subscription management\n\nQuality Gates:\n- Store state is type-safe with TypeScript\n- Store persistence works correctly\n- Store updates trigger component re-renders\n- No memory leaks from store subscriptions\n- Store works identically across all platforms",
+            "status": "pending",
+            "dependencies": [],
+            "parentTaskId": 4
+          },
+          {
+            "id": 2,
+            "title": "Install React Query for server state management",
+            "description": "Add React Query (TanStack Query) for efficient server state management, caching, and synchronization",
+            "details": "Implementation Steps:\n1. Install React Query: `bun add @tanstack/react-query`\n2. Install React Query devtools: `bun add @tanstack/react-query-devtools`\n3. Install React Query persist client: `bun add @tanstack/query-sync-storage-persister`\n4. Create query client configuration in `packages/app/lib/query-client.ts`\n5. Set up query provider wrapper component\n6. Configure offline support and background refetching\n7. Set up query devtools for development\n8. Create base query hooks structure\n\nFiles to modify:\n- `packages/app/package.json` - Add dependencies\n- `packages/app/lib/query-client.ts` - Query client configuration\n- `packages/app/provider/query-provider.tsx` - Query provider component\n- `packages/app/hooks/queries/index.ts` - Base query hooks\n- `apps/expo/app/_layout.tsx` - Wrap with query provider\n- `packages/app/lib/types/api.ts` - API response types\n\nTest Strategy:\n1. Unit Tests: Query hook behavior and caching\n2. Integration Tests: Query invalidation and refetching\n3. Offline Tests: Query persistence and sync\n4. Performance Tests: Query cache efficiency\n5. Cross-Platform Tests: Query behavior across platforms\n\nQuality Gates:\n- Query client properly configured for React Native\n- Offline support working correctly\n- Query devtools accessible in development\n- Query hooks follow consistent patterns\n- Cache persistence works across app restarts",
+            "status": "pending",
+            "dependencies": [],
+            "parentTaskId": 4
+          },
+          {
+            "id": 3,
+            "title": "Create Zustand store structure with slices",
+            "description": "Implement modular Zustand store structure with separate slices for user, calculator, and UI state management",
+            "details": "Implementation Steps:\n1. Create store directory structure: `packages/app/stores/`\n2. Create user slice: `packages/app/stores/slices/user-slice.ts`\n3. Create calculator slice: `packages/app/stores/slices/calculator-slice.ts`\n4. Create UI slice: `packages/app/stores/slices/ui-slice.ts`\n5. Create main store combining slices: `packages/app/stores/store.ts`\n6. Create store hooks for type-safe access: `packages/app/stores/hooks.ts`\n7. Add store persistence for user preferences\n8. Create store reset functionality for logout\n\nFiles to create:\n- `packages/app/stores/slices/user-slice.ts` - User profile and auth state\n- `packages/app/stores/slices/calculator-slice.ts` - Calculator history and input\n- `packages/app/stores/slices/ui-slice.ts` - Theme and navigation state\n- `packages/app/stores/store.ts` - Combined store configuration\n- `packages/app/stores/hooks.ts` - Typed store hooks\n- `packages/app/stores/types.ts` - Store type definitions\n\nStore Structure:\n```typescript\ninterface AppState {\n  user: {\n    profile: UserProfile | null;\n    isAuthenticated: boolean;\n    preferences: UserPreferences;\n  };\n  calculator: {\n    history: CalculationResult[];\n    currentInput: CalculationInput;\n  };\n  ui: {\n    theme: 'light' | 'dark';\n    navigationState: NavigationState;\n  };\n}\n```\n\nTest Strategy:\n1. Unit Tests: Each slice actions and state updates\n2. Integration Tests: Store composition and interactions\n3. Persistence Tests: Store hydration and dehydration\n4. Performance Tests: Store update performance\n5. TypeScript Tests: Type safety validation\n\nQuality Gates:\n- Store state is fully type-safe\n- Store slices are properly modular\n- Store persistence works for appropriate slices\n- Store hooks provide type-safe access\n- Store reset functionality clears sensitive data",
+            "status": "pending",
+            "dependencies": [],
+            "parentTaskId": 4
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "title": "Web Architecture Consolidation",
+        "description": "Replace Next.js with Expo for unified web/mobile architecture",
+        "details": "Audit Next.js functionality, configure Metro for web, migrate web-specific code to Expo app structure",
+        "testStrategy": "",
+        "status": "pending",
+        "dependencies": [
+          "2"
+        ],
+        "priority": "high",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Complete Expo Router v3 migration from React Navigation",
+            "description": "Finish migrating all remaining React Navigation components to Expo Router v3 file-based routing system",
+            "details": "Implementation Steps:\n1. Audit existing navigation structure for React Navigation remnants\n2. Update `apps/expo/app/_layout.tsx` to use Expo Router patterns\n3. Migrate tab navigation to `apps/expo/app/tabs/_layout.tsx`\n4. Convert screen components to use Expo Router conventions\n5. Update navigation imports throughout the app\n6. Remove React Navigation dependencies\n7. Update deep linking configuration\n8. Test navigation flow on all platforms\n\nFiles to modify:\n- `apps/expo/app/_layout.tsx` - Root layout with Expo Router\n- `apps/expo/app/tabs/_layout.tsx` - Tab navigation layout\n- `apps/expo/app/tabs/*.tsx` - Tab screen files\n- `packages/app/features/*/*.tsx` - Feature screen components\n- `packages/app/provider/navigation-provider.tsx` - Remove if React Navigation\n- `apps/expo/package.json` - Remove React Navigation deps\n- `apps/expo/app.json` - Update deep linking config\n\nNavigation Structure:\n```\napps/expo/app/\n├── _layout.tsx          # Root layout\n├── (tabs)/              # Tab group\n│   ├── _layout.tsx      # Tab navigation\n│   ├── calculator.tsx   # Calculator tab\n│   ├── motivational.tsx # Motivational tab\n│   └── profile.tsx      # Profile tab\n├── auth/                # Auth screens\n│   ├── login.tsx\n│   └── signup.tsx\n└── you/                 # You section screens\n    └── [id].tsx         # Dynamic routes\n```\n\nTest Strategy:\n1. Navigation Tests: All navigation flows work correctly\n2. Deep Link Tests: Deep links route to correct screens\n3. Back Button Tests: Hardware back button behavior\n4. Tab Tests: Tab navigation and state preservation\n5. Cross-Platform Tests: Navigation on iOS, Android, Web\n\nQuality Gates:\n- All React Navigation code removed\n- Expo Router navigation works on all platforms\n- Deep linking functions correctly\n- Tab navigation preserves state\n- Navigation types are properly typed",
+            "status": "pending",
+            "dependencies": [],
+            "parentTaskId": 5
+          },
+          {
+            "id": 2,
+            "title": "Set up web routing configuration for Expo Router",
+            "description": "Configure Expo Router for web platform with proper URL routing, SEO optimization, and web-specific navigation patterns",
+            "details": "Implementation Steps:\n1. Update Metro configuration for web routing support\n2. Configure web-specific routes in `metro.config.js`\n3. Set up URL rewriting for clean web URLs\n4. Configure head tags and metadata for SEO\n5. Set up web-specific navigation components\n6. Configure static file serving for web assets\n7. Test web routing with browser navigation\n8. Optimize web bundle for routing performance\n\nFiles to modify:\n- `apps/expo/metro.config.js` - Web routing configuration\n- `apps/expo/app/_layout.tsx` - Add web-specific head configuration\n- `apps/expo/app/+html.tsx` - Custom HTML template\n- `apps/expo/webpack.config.js` - Web build configuration (if needed)\n- `apps/expo/public/` - Static assets for web\n- `apps/expo/app.json` - Web platform configuration\n\nWeb Features:\n- Clean URLs (/calculator, /profile, etc.)\n- Browser back/forward button support\n- Bookmarkable URLs\n- SEO-friendly meta tags\n- Social media sharing tags\n- Web-specific navigation patterns\n\nTest Strategy:\n1. URL Tests: Direct URL access works correctly\n2. Browser Navigation Tests: Back/forward buttons\n3. SEO Tests: Meta tags and social sharing\n4. Performance Tests: Web bundle size and loading\n5. Accessibility Tests: Web-specific a11y features\n\nQuality Gates:\n- Web URLs are clean and semantic\n- Browser navigation works correctly\n- Meta tags are properly configured\n- Web performance meets targets\n- Web accessibility standards met",
+            "status": "pending",
+            "dependencies": [],
+            "parentTaskId": 5
+          },
+          {
+            "id": 3,
+            "title": "Implement deep linking across all platforms",
+            "description": "Set up comprehensive deep linking system for iOS, Android, and Web with proper URL scheme handling and universal links",
+            "details": "Implementation Steps:\n1. Configure custom URL scheme in `app.json`\n2. Set up universal links for iOS in `app.json`\n3. Configure Android app links and intent filters\n4. Create deep link handler utility functions\n5. Test deep links from external apps and browsers\n6. Set up deep link analytics and tracking\n7. Create deep link testing suite\n8. Document deep link URL patterns\n\nFiles to modify:\n- `apps/expo/app.json` - Deep link configuration\n- `packages/app/lib/deep-links.ts` - Deep link utilities\n- `packages/app/hooks/use-deep-links.ts` - Deep link hook\n- `apps/expo/app/_layout.tsx` - Deep link handling\n- Documentation for deep link patterns\n\nDeep Link Patterns:\n```\napp://calculator                  # Calculator screen\napp://profile                     # Profile screen\napp://you/categories/[id]         # Category detail\napp://auth/login                  # Login screen\nhttps://yourapp.com/calculator    # Universal links\n```\n\nURL Scheme Configuration:\n- Custom scheme: `projectyou://`\n- Universal links: `https://yourapp.com/*`\n- Android app links: `https://yourapp.com/*`\n\nTest Strategy:\n1. URL Scheme Tests: Custom scheme links work\n2. Universal Link Tests: HTTPS links open app\n3. Android App Link Tests: Android-specific linking\n4. Cross-Platform Tests: Links work on all platforms\n5. Analytics Tests: Deep link tracking works\n\nQuality Gates:\n- Deep links work from all external sources\n- URL patterns are consistent and intuitive\n- Deep link handling is robust with error handling\n- Deep link analytics provide useful data\n- Documentation covers all link patterns",
+            "status": "pending",
+            "dependencies": [],
+            "parentTaskId": 5
+          }
+        ]
+      },
+      {
+        "id": 6,
+        "title": "NativeWind to Gluestack UI Migration",
+        "description": "Complete UI framework migration for modern component system",
+        "details": "Convert className props to Gluestack components, update typography, refactor layouts, migrate interactive elements",
+        "testStrategy": "",
+        "status": "pending",
+        "dependencies": [
+          "4",
+          "5"
+        ],
+        "priority": "high",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Create API endpoints directory structure",
+            "description": "Set up organized API endpoints directory structure with proper routing and middleware support for React Server Components",
+            "details": "Implementation Steps:\n1. Create `/api` directory in `apps/expo/app/api/`\n2. Set up route handlers using Expo Router API routes\n3. Create middleware for authentication and validation\n4. Set up API request/response types\n5. Create API error handling utilities\n6. Set up API logging and monitoring\n7. Create API testing utilities\n8. Document API structure and conventions\n\nDirectory Structure:\n```\napps/expo/app/api/\n├── auth/\n│   ├── login/route.ts       # POST /api/auth/login\n│   ├── logout/route.ts      # POST /api/auth/logout\n│   └── profile/route.ts     # GET/PUT /api/auth/profile\n├── calculator/\n│   └── route.ts             # POST /api/calculator\n├── user/\n│   └── [id]/route.ts        # GET/PUT /api/user/[id]\n├── categories/\n│   ├── route.ts             # GET /api/categories\n│   └── [id]/route.ts        # GET /api/categories/[id]\n└── middleware/\n    ├── auth.ts              # Authentication middleware\n    ├── validation.ts        # Request validation\n    └── cors.ts              # CORS handling\n```\n\nFiles to create:\n- `packages/app/lib/types/api.ts` - API type definitions\n- `packages/app/lib/api/error-handler.ts` - API error handling\n- `packages/app/lib/api/middleware.ts` - Common middleware\n- `packages/app/lib/api/validation.ts` - Request validation\n- `packages/app/lib/api/auth.ts` - Auth utilities\n\nTest Strategy:\n1. API Route Tests: All endpoints respond correctly\n2. Middleware Tests: Auth and validation work\n3. Error Handling Tests: Proper error responses\n4. Type Safety Tests: Request/response typing\n5. Performance Tests: API response times\n\nQuality Gates:\n- API routes follow consistent patterns\n- Middleware functions correctly\n- API errors are properly handled\n- API responses are type-safe\n- API documentation is comprehensive",
+            "status": "pending",
+            "dependencies": [],
+            "parentTaskId": 6
+          },
+          {
+            "id": 2,
+            "title": "Identify and migrate business logic to API endpoints",
+            "description": "Extract business logic from client-side code and migrate to server-side API endpoints for better security and performance",
+            "details": "Implementation Steps:\n1. Audit existing client-side business logic in `packages/app/lib/`\n2. Identify logic suitable for server-side execution:\n   - `numCalculator.ts` - Numerology calculations\n   - Authentication validation logic\n   - User profile data processing\n   - Category and feature unlocking logic\n3. Create server-side equivalents in API routes\n4. Implement server-side validation and sanitization\n5. Add proper error handling and logging\n6. Create client-side API call functions\n7. Update components to use API calls instead of direct logic\n8. Remove client-side business logic where appropriate\n\nBusiness Logic Migration Targets:\n- Calculator logic → `/api/calculator/route.ts`\n- Auth validation → `/api/auth/*/route.ts`\n- Profile updates → `/api/user/[id]/route.ts`\n- Category access → `/api/categories/*/route.ts`\n\nFiles to modify:\n- `packages/app/lib/numCalculator.ts` → `apps/expo/app/api/calculator/route.ts`\n- Auth logic → Various auth API routes\n- Profile logic → User API routes\n- Category logic → Category API routes\n- Update components to use API calls\n\nTest Strategy:\n1. Logic Parity Tests: Server logic matches client behavior\n2. Security Tests: Server validation prevents malicious input\n3. Performance Tests: API calls are efficient\n4. Error Handling Tests: Proper error responses\n5. Integration Tests: Components work with API calls\n\nQuality Gates:\n- Business logic properly secured on server\n- API calls replace direct client logic\n- Server validation prevents security issues\n- API performance meets requirements\n- Client components updated to use APIs",
+            "status": "pending",
+            "dependencies": [],
+            "parentTaskId": 6
+          },
+          {
+            "id": 3,
+            "title": "Set up React Server Components integration",
+            "description": "Configure React Server Components for server-side rendering and data fetching with proper hydration and client boundaries",
+            "details": "Implementation Steps:\n1. Configure Expo for React Server Components support\n2. Identify components suitable for server rendering:\n   - User profile screens (static data)\n   - Category listing screens (cacheable)\n   - Motivational card listings (content-heavy)\n   - Help and information screens (static)\n3. Create server component versions\n4. Set up proper client/server boundaries with 'use client' directives\n5. Implement server-side data fetching patterns\n6. Configure caching and revalidation strategies\n7. Set up hydration and streaming\n8. Test server components across platforms\n\nServer Component Candidates:\n```\npackages/app/features/you/user-profile-screen.tsx → Server Component\npackages/app/features/motivation/index.tsx → Server Component  \npackages/app/components/cards/motivational-card.tsx → Server Component\npackages/app/features/calculator/input-*.tsx → Client Component (interactive)\n```\n\nFiles to modify:\n- Expo configuration for RSC support\n- Convert static screens to server components\n- Add 'use client' to interactive components\n- Update data fetching patterns\n- Configure server-side caching\n\nTest Strategy:\n1. Hydration Tests: Server/client state matches\n2. Performance Tests: Server rendering improves load times\n3. Caching Tests: Server caching works correctly\n4. Interactive Tests: Client components work post-hydration\n5. Cross-Platform Tests: RSC works on all platforms\n\nQuality Gates:\n- Server components render correctly\n- Client boundaries are properly defined\n- Hydration occurs without mismatches\n- Performance improves with server rendering\n- Interactive features work after hydration",
+            "status": "pending",
+            "dependencies": [],
+            "parentTaskId": 6
+          }
+        ]
+      },
+      {
+        "id": 7,
+        "title": "API Endpoint Implementation",
+        "description": "Convert client-side Supabase calls to secure API endpoints",
+        "details": "Implement authentication, user profile, calculator logic, and category management API endpoints with proper validation and security",
+        "testStrategy": "",
+        "status": "pending",
+        "dependencies": [
+          "6"
+        ],
+        "priority": "high",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Create comprehensive test suite for migration",
+            "description": "Set up complete testing framework covering unit, integration, and E2E tests for all migrated components and features",
+            "details": "Implementation Steps:\n1. Install testing dependencies: Jest, React Native Testing Library, Detox\n2. Configure test environments for React Native and Web\n3. Create test utilities and helpers\n4. Write unit tests for:\n   - Zustand store slices and actions\n   - React Query hooks and mutations\n   - API endpoint handlers\n   - Utility functions and helpers\n5. Create integration tests for:\n   - Component interactions with stores\n   - API call flows\n   - Navigation flows\n6. Set up E2E tests with Detox for critical user journeys\n7. Configure test coverage reporting\n8. Set up CI/CD test automation\n\nTesting Structure:\n```\n__tests__/\n├── unit/\n│   ├── stores/           # Zustand store tests\n│   ├── hooks/            # React Query hook tests\n│   ├── api/              # API endpoint tests\n│   └── utils/            # Utility function tests\n├── integration/\n│   ├── components/       # Component integration tests\n│   ├── features/         # Feature flow tests\n│   └── navigation/       # Navigation tests\n└── e2e/\n    ├── auth.test.ts      # Auth flow E2E tests\n    ├── calculator.test.ts # Calculator E2E tests\n    └── profile.test.ts   # Profile E2E tests\n```\n\nFiles to create:\n- `jest.config.js` - Jest configuration\n- `detox.config.js` - Detox E2E configuration\n- `__tests__/setup.ts` - Test setup and utilities\n- Test files for all critical functionality\n\nTest Strategy:\n1. Unit Tests: 80%+ coverage for logic and utilities\n2. Integration Tests: Component and store interactions\n3. E2E Tests: Critical user journeys and workflows\n4. Performance Tests: Load times and responsiveness\n5. Accessibility Tests: A11y compliance validation\n\nQuality Gates:\n- 80%+ test coverage for critical paths\n- All E2E user journeys pass\n- Tests run successfully in CI/CD\n- Performance benchmarks met\n- Accessibility standards validated",
+            "status": "pending",
+            "dependencies": [],
+            "parentTaskId": 7
+          },
+          {
+            "id": 2,
+            "title": "Validate cross-platform functionality",
+            "description": "Comprehensive testing and validation of all features across iOS, Android, and Web platforms to ensure consistent behavior",
+            "details": "Implementation Steps:\n1. Set up platform-specific testing environments\n2. Create cross-platform test matrix covering:\n   - Navigation flows on all platforms\n   - State management consistency\n   - API calls and data sync\n   - UI component rendering\n   - Performance characteristics\n3. Test platform-specific features:\n   - iOS: Native navigation, gestures, accessibility\n   - Android: Back button, hardware menu, permissions\n   - Web: Browser navigation, keyboard shortcuts, responsive design\n4. Validate data persistence across platforms\n5. Test offline functionality and sync\n6. Performance testing on different devices\n7. Accessibility testing with platform-specific tools\n8. Create platform compatibility documentation\n\nCross-Platform Test Areas:\n- Authentication flows\n- Calculator functionality\n- Profile management\n- Navigation patterns\n- Data synchronization\n- Offline support\n- Performance metrics\n- Accessibility compliance\n\nTesting Devices/Browsers:\n- iOS: iPhone, iPad (various iOS versions)\n- Android: Various devices and Android versions\n- Web: Chrome, Safari, Firefox, Edge\n\nFiles to create:\n- `__tests__/cross-platform/` - Platform-specific tests\n- `scripts/test-all-platforms.sh` - Automated platform testing\n- Platform compatibility documentation\n\nTest Strategy:\n1. Functional Tests: Feature parity across platforms\n2. Performance Tests: Platform-specific benchmarks\n3. UI Tests: Visual consistency validation\n4. Accessibility Tests: Platform a11y standards\n5. Integration Tests: Cross-platform data sync\n\nQuality Gates:\n- All features work consistently across platforms\n- Performance meets platform-specific targets\n- UI/UX is appropriate for each platform\n- Accessibility standards met on all platforms\n- Data sync works reliably across platforms",
+            "status": "pending",
+            "dependencies": [],
+            "parentTaskId": 7
+          }
+        ]
+      },
+      {
+        "id": 8,
+        "title": "Cross-platform Testing & Optimization",
+        "description": "Ensure functionality works flawlessly across all platforms with performance optimization",
+        "details": "Test iOS, Android, Web functionality, optimize web performance, validate RSC implementation, test Bun toolchain",
+        "testStrategy": "",
+        "status": "pending",
+        "dependencies": [
+          "7"
+        ],
+        "priority": "medium",
+        "subtasks": [
+          {
+            "id": 1,
+            "title": "Configure EAS Build for all platforms",
+            "description": "Set up EAS Build configuration for iOS, Android, and web builds with proper environment management and build optimization",
+            "details": "Implementation Steps:\n1. Install and configure EAS CLI: `npm install -g @expo/eas-cli`\n2. Initialize EAS in project: `eas build:configure`\n3. Configure build profiles in `eas.json`:\n   - Development builds for testing\n   - Preview builds for staging\n   - Production builds for app stores\n4. Set up environment variables and secrets\n5. Configure platform-specific build settings:\n   - iOS: Provisioning profiles, certificates\n   - Android: Signing keys, Play Store config\n   - Web: Build optimization, hosting config\n6. Set up build triggers and automation\n7. Test builds on all platforms\n8. Configure build caching for faster builds\n\nEAS Configuration:\n```json\n{\n  \"build\": {\n    \"development\": {\n      \"developmentClient\": true,\n      \"distribution\": \"internal\"\n    },\n    \"preview\": {\n      \"distribution\": \"internal\",\n      \"channel\": \"preview\"\n    },\n    \"production\": {\n      \"channel\": \"production\"\n    }\n  }\n}\n```\n\nFiles to create/modify:\n- `eas.json` - EAS build configuration\n- `.easignore` - Files to exclude from builds\n- `app.config.ts` - Dynamic app configuration\n- Environment-specific configurations\n\nBuild Profiles:\n- Development: For testing new features\n- Preview: For stakeholder review\n- Production: For app store submission\n\nTest Strategy:\n1. Build Tests: All platforms build successfully\n2. Performance Tests: Build times and optimization\n3. Distribution Tests: Internal distribution works\n4. Environment Tests: Different configs work correctly\n5. Store Tests: Production builds meet store requirements\n\nQuality Gates:\n- All platform builds complete successfully\n- Build times are optimized with caching\n- Environment variables properly configured\n- Builds meet app store requirements\n- Internal distribution works reliably",
+            "status": "pending",
+            "dependencies": [],
+            "parentTaskId": 8
+          },
+          {
+            "id": 2,
+            "title": "Set up EAS Update for over-the-air updates",
+            "description": "Configure EAS Update system for delivering JavaScript and asset updates to published apps without app store submission",
+            "details": "Implementation Steps:\n1. Configure EAS Update in `eas.json` and `app.config.ts`\n2. Set up update channels for different environments:\n   - Development channel for testing\n   - Staging channel for preview\n   - Production channel for live users\n3. Configure update policies and strategies:\n   - Automatic updates on app start\n   - Background updates\n   - Manual update checks\n4. Set up update rollback mechanisms\n5. Configure update analytics and monitoring\n6. Test update delivery and installation\n7. Create update deployment scripts\n8. Set up CI/CD integration for automated updates\n\nUpdate Configuration:\n```json\n{\n  \"update\": {\n    \"url\": \"https://u.expo.dev/[project-id]\"\n  }\n}\n```\n\nUpdate Channels:\n- development: For testing new features\n- staging: For QA and stakeholder review  \n- production: For live user updates\n\nFiles to modify:\n- `eas.json` - Update configuration\n- `app.config.ts` - Update URL and settings\n- Update deployment scripts\n- CI/CD update automation\n\nUpdate Features:\n- Automatic JS/asset updates\n- Rollback to previous versions\n- Staged rollouts for safety\n- Update analytics and monitoring\n\nTest Strategy:\n1. Update Tests: Updates install correctly\n2. Rollback Tests: Rollback mechanism works\n3. Channel Tests: Different channels work independently\n4. Performance Tests: Update download and install speed\n5. Reliability Tests: Update system handles failures gracefully\n\nQuality Gates:\n- Updates deploy successfully to all channels\n- Rollback system works reliably\n- Update analytics provide useful data\n- Update performance meets targets\n- Update system handles edge cases properly",
+            "status": "pending",
+            "dependencies": [],
+            "parentTaskId": 8
+          },
+          {
+            "id": 3,
+            "title": "Configure EAS Hosting for web deployment",
+            "description": "Set up EAS Hosting for web application deployment with proper domain configuration, SSL, and CDN optimization",
+            "details": "Implementation Steps:\n1. Configure web hosting in `eas.json` for web builds\n2. Set up custom domain configuration\n3. Configure SSL certificates and HTTPS redirect\n4. Set up CDN for static asset optimization\n5. Configure web-specific build optimizations:\n   - Bundle splitting and lazy loading\n   - Asset compression and caching\n   - SEO optimization and meta tags\n6. Set up web analytics and monitoring\n7. Configure web deployment automation\n8. Test web deployment and performance\n\nWeb Hosting Configuration:\n```json\n{\n  \"build\": {\n    \"production-web\": {\n      \"platform\": \"web\",\n      \"output\": \"static\"\n    }\n  },\n  \"submit\": {\n    \"production\": {\n      \"web\": {\n        \"id\": \"web-app-id\"\n      }\n    }\n  }\n}\n```\n\nWeb Optimization Features:\n- Static site generation where possible\n- Asset optimization and compression\n- CDN distribution for global performance\n- SEO-friendly URLs and meta tags\n- Progressive Web App (PWA) features\n\nFiles to modify:\n- `eas.json` - Web hosting configuration\n- `app.config.ts` - Web-specific settings\n- `metro.config.js` - Web build optimization\n- Web deployment scripts\n\nTest Strategy:\n1. Deployment Tests: Web builds deploy successfully\n2. Performance Tests: Web performance metrics\n3. SEO Tests: Search engine optimization\n4. CDN Tests: Asset delivery optimization\n5. Domain Tests: Custom domain configuration\n\nQuality Gates:\n- Web deployment completes successfully\n- Web performance meets Core Web Vitals targets\n- SEO optimization is properly configured\n- CDN delivers assets efficiently\n- Custom domain works with HTTPS",
+            "status": "pending",
+            "dependencies": [],
+            "parentTaskId": 8
+          }
+        ]
+      }
+    ],
+    "metadata": {
+      "created": "2025-07-28T04:23:40.743Z",
+      "description": "Default tasks context",
+      "updated": "2025-07-28T04:54:05.344Z"
+    }
+  }
+}

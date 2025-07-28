@@ -1,7 +1,8 @@
-import React from 'react'
+import { NumUserListScreen } from 'app/features/you/'
+import { Stack } from 'expo-router'
 
-function NumUserList() {
-  return <div>NumUserList</div>
+export default function Page() {
+  return (<>
+    <Stack.Screen options={{ title: 'User List' }} />
+    <NumUserListScreen /></>)
 }
-
-export default NumUserList

@@ -14,7 +14,7 @@ const Text = styled(P)
 
 export const Smartie = (props: Props) => {
   return (
-    <Container className="flex">
+    <Container className="flex text-center self-center">
       <LottieView
         className="w-32 h-32"
         source={require('./animation.json')}

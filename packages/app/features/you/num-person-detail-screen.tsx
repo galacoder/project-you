@@ -17,16 +17,14 @@ function NumPersonDetail() {
       <NumCategoryDetailCard
         number="6"
         numberName="Health"
-        navigateParent="You"
-        navigateScreenName="NumActiveCategoryDetailScreen"
+        href="/you/num-active-category-detail"
         backgroundColor="gradient"
       />
       <SpacerM />
       <NumCategoryDetailCard
         number="6"
         numberName="Health"
-        navigateParent="You"
-        navigateScreenName="NumInactiveCategoryDetailScreen"
+        href="/you/num-active-category-detail"
         iconSrc={require('../../assets/icons/lock.png')}
         backgroundColor="transparent"
       />

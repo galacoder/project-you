@@ -4,7 +4,6 @@ import { Smartie } from 'app/components/smartie'
 import { Layout } from 'app/design/layout'
 import { SpacerXXL } from 'app/design/spacing'
 
-
 import { Stack } from 'expo-router'
 import { NavigationButtonsGroup } from '../../components/button/navigation-group'
 import { SingleButton } from '../../components/button/single'
@@ -32,10 +31,10 @@ export const StartScreen = () => {
         forwardButtonName="Có"
         forwardButtonIconSrc={require('../../assets/icons/thumbs-up.png')}
       />
-      {/* <SingleButton */}
-      {/*   href='/motivation' */}
-      {/*   iconSrc={require('../../assets/icons/sphere.png')} */}
-      {/* /> */}
+      <SingleButton
+        href='/tabs/motivational'
+        iconSrc={require('../../assets/icons/sphere.png')}
+      />
     </Layout>
   )
 }
